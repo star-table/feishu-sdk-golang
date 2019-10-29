@@ -3,23 +3,23 @@ FeiShu ([https://feishu.cn](https://feishu.cn)) Server Api Sdk For Go.
 ## Doc
 FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN](https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN))
 ## Feature
-- [ ] 授权
-  - [ ] 获取 app_access_token（企业自建应用）
-  - [ ] 获取 app_access_token（应用商店应用）
+- [x] 授权
+  - [x] 获取 app_access_token（企业自建应用）
+  - [x] 获取 app_access_token（应用商店应用）
   - [x] 获取 tenant_access_token（企业自建应用）
   - [x] 获取 tenant_access_token（应用商店应用）
-  - [ ] 重新推送 app_ticket
+  - [x] 重新推送 app_ticket
 - [ ] 身份验证
   - [ ] 请求身份验证
   - [x] 获取登录用户身份
   - [x] 获取用户信息
 - [ ] 通讯录
   - [ ] 获取通讯录授权范围
-  - [ ] 获取子部门列表
+  - [x] 获取子部门列表
   - [ ] 获取子部门 ID 列表
-  - [ ] 获取部门详情
+  - [x] 获取部门详情
   - [ ] 批量获取部门详情
-  - [ ] 获取部门用户列表
+  - [x] 获取部门用户列表
   - [ ] 获取部门用户详情
   - [ ] 获取企业自定义用户属性配置
   - [ ] 批量获取用户信息

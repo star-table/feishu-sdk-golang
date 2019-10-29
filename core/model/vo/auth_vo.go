@@ -1,5 +1,18 @@
 package vo
 
+type AppAccessTokenInternalRespVo struct {
+	CommonVo
+	TenantAccessToken string `json:"tenant_access_token"`
+	AppAccessToken string `json:"app_access_token"`
+	Expire int64 `json:"expire"`
+}
+
+type AppAccessTokenRespVo struct {
+	CommonVo
+	AppAccessToken string `json:"app_access_token"`
+	Expire int64 `json:"expire"`
+}
+
 type TenantAccessTokenRespVo struct {
 	CommonVo
 	TenantAccessToken string `json:"tenant_access_token"`

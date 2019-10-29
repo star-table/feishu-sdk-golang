@@ -31,6 +31,13 @@ func init() {
 	}
 }
 
+func BuildTokenHeaderOptions(tenantAccessToken string) HeaderOption{
+	return HeaderOption{
+		Name: "Authorization",
+		Value: "Bearer " + tenantAccessToken,
+	}
+}
+
 func Post(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
 	fullUrl := url + ConvertToQueryParams(params)
 	req, err := http.NewRequest("POST", fullUrl, strings.NewReader(body))
@@ -78,7 +85,9 @@ func responseHandle(resp *http.Response, err error) (string, error) {
 		log.Error(err)
 		return "", err
 	}
-	return string(b), nil
+	respBody := string(b)
+	//log.InfoF("api %s 响应结果: %s", resp.Request.URL, respBody)
+	return respBody, nil
 }
 
 func ConvertToQueryParams(params map[string]interface{}) string {
