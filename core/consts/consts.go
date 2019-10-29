@@ -12,6 +12,9 @@ const(
 	ApiTenantAccessTokenInternal = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal/"
 	//重新推送 app_ticket
 	ApiAppTicketResend = "https://open.feishu.cn/open-apis/auth/v3/app_ticket/resend/"
+
+	//获取登录用户身份
+	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
 )
 
 //Other Const
