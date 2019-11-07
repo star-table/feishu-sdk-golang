@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"crypto/tls"
 	"fmt"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/json"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/log"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -19,6 +19,11 @@ var httpClient = &http.Client{}
 type HeaderOption struct {
 	Name  string
 	Value string
+}
+
+type QueryParameter struct {
+	Key string
+	Value interface{}
 }
 
 func init() {
@@ -38,9 +43,8 @@ func BuildTokenHeaderOptions(tenantAccessToken string) HeaderOption{
 	}
 }
 
-func Post(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
-	fullUrl := url + ConvertToQueryParams(params)
-	req, err := http.NewRequest("POST", fullUrl, strings.NewReader(body))
+func PostRequest(url string, body string, headerOptions ...HeaderOption) (string, error) {
+	req, err := http.NewRequest("POST", url, strings.NewReader(body))
 	if err != nil{
 		return "", err
 	}
@@ -57,9 +61,18 @@ func Post(url string, params map[string]interface{}, body string, headerOptions 
 	return responseHandle(resp, err)
 }
 
-func Get(url string, params map[string]interface{}, headerOptions ...HeaderOption) (string, error) {
+func Post(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
 	fullUrl := url + ConvertToQueryParams(params)
-	req, err := http.NewRequest("GET", fullUrl, nil)
+	return PostRequest(fullUrl, body, headerOptions...)
+}
+
+func PostRepetition(url string, params []QueryParameter, body string, headerOptions ...HeaderOption) (string, error) {
+	fullUrl := url + ConvertToQueryParamsRepetition(params)
+	return PostRequest(fullUrl, body, headerOptions...)
+}
+
+func GetRequest(url string, headerOptions ...HeaderOption) (string, error) {
+	req, err := http.NewRequest("GET", url, nil)
 	if err != nil{
 		return "", err
 	}
@@ -73,6 +86,16 @@ func Get(url string, params map[string]interface{}, headerOptions ...HeaderOptio
 		}
 	}()
 	return responseHandle(resp, err)
+}
+
+func Get(url string, params map[string]interface{}, headerOptions ...HeaderOption) (string, error) {
+	fullUrl := url + ConvertToQueryParams(params)
+	return GetRequest(fullUrl, headerOptions...)
+}
+
+func GetRepetition(url string, params []QueryParameter, headerOptions ...HeaderOption) (string, error) {
+	fullUrl := url + ConvertToQueryParamsRepetition(params)
+	return GetRequest(fullUrl, headerOptions...)
 }
 
 func responseHandle(resp *http.Response, err error) (string, error) {
@@ -105,6 +128,19 @@ func ConvertToQueryParams(params map[string]interface{}) string {
 			continue
 		}
 		buffer.WriteString(fmt.Sprintf("%s=%v&", k, v))
+	}
+	buffer.Truncate(buffer.Len() - 1)
+	return buffer.String()
+}
+
+func ConvertToQueryParamsRepetition(params []QueryParameter) string {
+	var buffer bytes.Buffer
+	buffer.WriteString("?")
+	for _, v := range params {
+		if v.Value == nil {
+			continue
+		}
+		buffer.WriteString(fmt.Sprintf("%s=%v&", v.Key, v.Value))
 	}
 	buffer.Truncate(buffer.Len() - 1)
 	return buffer.String()

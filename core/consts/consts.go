@@ -23,6 +23,10 @@ const(
 	ApiDepartmentInfoGet = "https://open.feishu.cn/open-apis/contact/v1/department/info/get"
 	//获取部门用户列表
 	ApiDepartmentUserList = "https://open.feishu.cn/open-apis/contact/v1/department/user/list"
+	//获取用户详情
+	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
+	//批量获取用户信息
+	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
 )
 
 //Other Const

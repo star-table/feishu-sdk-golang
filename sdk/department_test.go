@@ -1,9 +1,9 @@
 package sdk
 
 import (
-	"github.com/polaris-team/feishu-sdk-golang/core/consts"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/json"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/log"
+	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 	"gotest.tools/assert"
 	"testing"
 )

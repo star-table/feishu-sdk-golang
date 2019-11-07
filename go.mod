@@ -1,4 +1,4 @@
-module github.com/polaris-team/feishu-sdk-golang
+module github.com/galaxy-book/feishu-sdk-golang
 
 go 1.13
 

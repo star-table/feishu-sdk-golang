@@ -1,11 +1,11 @@
 package sdk
 
 import (
-	"github.com/polaris-team/feishu-sdk-golang/core/consts"
-	"github.com/polaris-team/feishu-sdk-golang/core/model/vo"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/http"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/json"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/log"
+	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
+	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 )
 
 //获取子部门列表 https://open.feishu.cn/document/ukTMukTMukTM/ugzN3QjL4czN04CO3cDN
@@ -55,6 +55,35 @@ func (t Tenant) GetDepartmentUserList(departmentId string, offset, pageSize int,
 		return nil, err
 	}
 	respVo := &vo.GetDepartmentUserListRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//批量获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uIzNz4iM3MjLyczM
+func (t Tenant) GetUserBatchGet(employeeIds []string, openIds []string) (*vo.GetUserBatchGetRespVo, error){
+	queryParams := make([]http.QueryParameter, 0)
+	if employeeIds != nil && len(employeeIds) > 0{
+		for _, id := range employeeIds{
+			queryParams = append(queryParams, http.QueryParameter{
+				Key: "employee_ids",
+				Value: id,
+			})
+		}
+	}
+	if openIds != nil && len(openIds) > 0{
+		for _, id := range openIds{
+			queryParams = append(queryParams, http.QueryParameter{
+				Key: "open_ids",
+				Value: id,
+			})
+		}
+	}
+	respBody, err := http.GetRepetition(consts.ApiDepartmentUserList, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetUserBatchGetRespVo{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }

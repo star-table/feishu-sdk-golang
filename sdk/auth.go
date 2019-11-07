@@ -1,11 +1,11 @@
 package sdk
 
 import (
-	"github.com/polaris-team/feishu-sdk-golang/core/consts"
-	"github.com/polaris-team/feishu-sdk-golang/core/model/vo"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/http"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/json"
-	"github.com/polaris-team/feishu-sdk-golang/core/util/log"
+	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
+	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 )
 
 //获取 app_access_token（企业自建应用）https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN
