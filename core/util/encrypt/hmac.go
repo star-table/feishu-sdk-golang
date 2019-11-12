@@ -1,15 +1,13 @@
 package encrypt
 
 import (
-	"crypto/hmac"
 	"crypto/sha1"
 	"crypto/sha256"
 	"encoding/hex"
 )
 
-func SHA256(source string, secretKey string) []byte {
-	key := []byte(secretKey)
-	mac := hmac.New(sha256.New, key)
+func SHA256(source string) []byte {
+	mac := sha256.New()
 	mac.Write([]byte(source))
 	return mac.Sum(nil)
 }
