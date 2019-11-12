@@ -27,6 +27,9 @@ const(
 	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
 	//批量获取用户信息
 	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
+
+	//////////////////机器人发送消息
+	ApiRobotSendMessage = "https://open.feishu.cn/open-apis/message/v4/send/"
 )
 
 //Other Const
