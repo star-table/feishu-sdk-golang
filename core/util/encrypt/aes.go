@@ -5,7 +5,6 @@ import (
 	"crypto/cipher"
 	"encoding/base64"
 	"errors"
-	"fmt"
 )
 
 func AesDecrypt(key string, encrypt string) (string, error){
@@ -19,7 +18,9 @@ func AesDecrypt(key string, encrypt string) (string, error){
 	}
 	iv := decode[:aes.BlockSize]
 	block, err := aes.NewCipher(kbs)
-	fmt.Println(err)
+	if err != nil{
+		return "", err
+	}
 	blockMode := cipher.NewCBCDecrypter(block, iv)
 	plantText := make([]byte, len(decode))
 	blockMode.CryptBlocks(plantText, decode)
