@@ -5,6 +5,16 @@ type GetDepartmentUserListRespVo struct {
 	Data *GetDepartmentUserListRespVoData `json:"data"`
 }
 
+type GetDepartmentUserDetailListRespVo struct {
+	CommonVo
+	Data *GetDepartmentUserDetailListRespVoData `json:"data"`
+}
+
+type GetDepartmentUserDetailListRespVoData struct {
+	HasMore bool `json:"has_more"`
+	UserInfos []UserDetailInfo `json:"user_infos"`
+}
+
 type GetDepartmentUserListRespVoData struct {
 	HasMore bool `json:"has_more"`
 	UserList []UserRestInfoVo `json:"user_list"`
@@ -67,7 +77,7 @@ type UserDetailInfo struct {
 	NamePy string `json:"name_py"`
 	EnName string `json:"en_name"`
 	EmployeeId string `json:"employee_id"`
-	EmployeeNode string `json:"employee_node"`
+	EmployeeNo string `json:"employee_no"`
 	OpenId string `json:"open_id"`
 	Status string `json:"status"`
 	EmployeeType string `json:"employee_type"`
