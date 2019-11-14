@@ -104,25 +104,21 @@ type CardI18n struct {
 	JaJp string `json:"ja_jp"`
 }
 
-type CardElement struct {
-	Tag string `json:"tag"`
-
-}
 
 type CardElementContentModule struct {
-	CardElement
+	Tag string `json:"tag"`
 
-	Text CardElementText `json:"text"`
+	Text *CardElementText `json:"text"`
 	Fields []CardElementField `json:"fields"`
 	Extra *CardElementExtra `json:"extra,omitempty"`
 }
 
 type CardElementBrModule struct {
-	CardElement
+	Tag string `json:"tag"`
 }
 
 type CardElementImageModule struct {
-	CardElement
+	Tag string `json:"tag"`
 
 	ImgKey string `json:"img_key"`
 	Alt CardElementText `json:"alt"`
@@ -130,15 +126,12 @@ type CardElementImageModule struct {
 }
 
 type CardElementActionModule struct {
-	CardElement
-}
-
-type Action struct {
 	Tag string `json:"tag"`
+	Actions []interface{} `json:"actions"`
 }
 
 type ActionButton struct {
-	Action
+	Tag string `json:"tag"`
 
 	Text CardElementText `json:"text"`
 	Url string `json:"url,omitempty"`
@@ -149,7 +142,7 @@ type ActionButton struct {
 }
 
 type ActionSelectMenu struct {
-	Action
+	Tag string `json:"tag"`
 
 	Placeholder *CardElementText `json:"placeholder,omitempty"`
 	InitialOption string `json:"initial_option,omitempty"`
@@ -159,7 +152,7 @@ type ActionSelectMenu struct {
 }
 
 type ActionOverflow struct {
-	Action
+	Tag string `json:"tag"`
 
 	Options []CardElementOption `json:"options"`
 	Value string `json:"value,omitempty"`
@@ -167,7 +160,7 @@ type ActionOverflow struct {
 }
 
 type ActionDatePicker struct {
-	Action
+	Tag string `json:"tag"`
 
 	InitialDate string `json:"initial_date,omitempty"`
 	InitialTime string `json:"initial_time,omitempty"`
@@ -185,7 +178,7 @@ type CardElementExtra struct {
 
 type CardElementField struct {
 	IsShort bool `json:"is_short"`
-	Text *CardElementText `json:"text,omitempty"`
+	Text CardElementText `json:"text,omitempty"`
 }
 
 type I18nElement struct {

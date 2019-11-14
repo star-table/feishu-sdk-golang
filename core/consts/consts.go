@@ -45,5 +45,5 @@ const(
 const(
 	TestAppId = "cli_9d40f5bf08f95108"
 	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket = "c9d92f37cf42b04415f4e42fb3d2064bd9b61cf3"
+	TestTicket = "c72293913862fdd6d423f61283adbe0b91980c5d"
 )
