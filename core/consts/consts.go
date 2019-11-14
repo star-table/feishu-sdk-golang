@@ -34,6 +34,7 @@ const(
 
 //Other Const
 const(
-	TestAppId = "xxx"
-	TestAppSecret = "xxx"
+	TestAppId = "cli_9d40f5bf08f95108"
+	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
+	TestTicket = "9e375ca96ab4aa724568e17bc16f925fd56d6878"
 )

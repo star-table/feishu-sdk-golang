@@ -79,8 +79,8 @@ type UserDetailInfo struct {
 	EmployeeId string `json:"employee_id"`
 	EmployeeNo string `json:"employee_no"`
 	OpenId string `json:"open_id"`
-	Status string `json:"status"`
-	EmployeeType string `json:"employee_type"`
+	Status int `json:"status"`
+	EmployeeType int `json:"employee_type"`
 	Avatar71 string `json:"avatar_71"`
 	Avatar240 string `json:"avatar_240"`
 	Avatar640 string `json:"avatar_640"`
