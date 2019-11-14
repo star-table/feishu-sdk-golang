@@ -23,6 +23,7 @@ type GetDepartmentUserListRespVoData struct {
 type UserRestInfoVo struct {
 	EmployeeId string `json:"employee_id"`
 	OpenId string `json:"open_id"`
+	UserId string `json:"user_id"`
 	Name string `json:"name"`
 	EmployeeNo string `json:"employee_no"`
 }
