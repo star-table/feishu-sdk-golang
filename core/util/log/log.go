@@ -17,9 +17,9 @@ func Info(msg ...interface{}){
 }
 
 func ErrorF(msg string, args ...interface{}){
-	fmt.Printf("Error::\t" + msg + "\n", args)
+	fmt.Printf("Error::\t" + msg + "\n", args...)
 }
 
 func InfoF(msg string, args ...interface{}){
-	fmt.Printf("Info::\t" + msg + "\n", args)
+	fmt.Printf("Info::\t" + msg + "\n", args...)
 }

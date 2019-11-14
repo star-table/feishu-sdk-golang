@@ -29,7 +29,10 @@ const(
 	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
 
 	//////////////////机器人发送消息
+	//机器人发送消息
 	ApiRobotSendMessage = "https://open.feishu.cn/open-apis/message/v4/send/"
+	//机器人批量发送消息
+	ApiRobotSendBatchMessage = "https://open.feishu.cn/open-apis/message/v4/batch_send/"
 
 	//////////////////角色
 	//获取角色列表
@@ -40,7 +43,7 @@ const(
 
 //Other Const
 const(
-	TestAppId = "xxx"
-	TestAppSecret = "xxx"
-	TestTicket = "xxx"
+	TestAppId = "cli_9d40f5bf08f95108"
+	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
+	TestTicket = "c9d92f37cf42b04415f4e42fb3d2064bd9b61cf3"
 )

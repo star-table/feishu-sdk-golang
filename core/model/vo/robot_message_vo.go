@@ -2,15 +2,66 @@ package vo
 
 //定义参照: https://open.feishu.cn/open-apis/message/v4/send/
 type MsgVo struct {
-	OpenId string `json:"omitempty,open_id"`
-	UserId string `json:"omitempty,user_id"`
-	Email string `json:"omitempty,email"`
-	ChatId string `json:"omitempty,chat_id"`
+	OpenId string `json:"open_id,omitempty"`
+	UserId string `json:"user_id,omitempty"`
+	Email string `json:"email,omitempty"`
+	ChatId string `json:"chat_id,omitempty"`
 	MsgType string `json:"msg_type"`
-	RootId string `json:"omitempty,root_id"`
+	RootId string `json:"root_id,omitempty"`
 	UpdateMulti bool `json:"update_multi"`
 
-	Card Card `json:"card"`
+	Card *Card `json:"card,omitempty"`
+	Content *MsgContent `json:"content,omitempty"`
+}
+
+type BatchMsgVo struct {
+	DepartmentIds []string `json:"department_ids"`
+	OpenIds []string `json:"open_ids"`
+	UserIds []string `json:"user_ids"`
+	MsgType string `json:"msg_type"`
+	
+	Content MsgContent `json:"content"`
+}
+
+type MsgContent struct {
+	Text string `json:"text"`
+	ImageKey string `json:"image_key"`
+	Post *MsgPost `json:"post,omitempty"`
+}
+
+type MsgPost struct {
+	ZhCn *MsgPostValue `json:"zh_cn,omitempty"`
+	EnUs *MsgPostValue `json:"en_us,omitempty"`
+	JaJp *MsgPostValue `json:"ja_jp,omitempty"`
+}
+
+type MsgPostValue struct {
+	Title string `json:"title"`
+	Content interface{} `json:"content"`
+}
+
+type MsgPostContentText struct {
+	Tag string `json:"tag"`
+	UnEscape bool `json:"un_escape"`
+	Text string `json:"text"`
+}
+
+type MsgPostContentA struct {
+	Tag string `json:"tag"`
+	Text string `json:"text"`
+	Href string `json:"href"`
+}
+
+type MsgPostContentAt struct {
+	Tag string `json:"tag"`
+	UserId string `json:"user_id"`
+}
+
+type MsgPostContentImage struct {
+	Tag string `json:"tag"`
+	ImageKey string `json:"image_key"`
+	Width float64 `json:"width"`
+	Height float64 `json:"height"`
 }
 
 type MsgResp struct {
@@ -25,9 +76,9 @@ type MsgRespData struct {
 
 //机器人消息Card字段数据格式定义
 type Card struct {
-	Config *CardConfig `json:"config"`
-	CardLink *CardElementUrl `json:"card_link"`
-	Header *CardHeader `json:"header"`
+	Config *CardConfig `json:"config,omitempty"`
+	CardLink *CardElementUrl `json:"card_link,omitempty"`
+	Header *CardHeader `json:"header,omitempty"`
 	Elements []interface{} `json:"elements"`
 	I18nElements *I18nElement `json:"i18n_elements"`
 }
@@ -37,14 +88,14 @@ type CardConfig struct {
 }
 
 type CardHeader struct {
-	Title *CardHeaderTitle `json:"title"`
+	Title *CardHeaderTitle `json:"title,omitempty"`
 }
 
 type CardHeaderTitle struct {
 	Tag string `json:"tag"`
 	Content string `json:"content"`
-	Lines int `json:"omitempty,lines"`
-	I18n *CardI18n `json:"i18n"`
+	Lines int `json:"lines,omitempty"`
+	I18n *CardI18n `json:"i18n,omitempty"`
 }
 
 type CardI18n struct {
@@ -63,7 +114,7 @@ type CardElementContentModule struct {
 
 	Text CardElementText `json:"text"`
 	Fields []CardElementField `json:"fields"`
-	Extra *CardElementExtra `json:"extra"`
+	Extra *CardElementExtra `json:"extra,omitempty"`
 }
 
 type CardElementBrModule struct {
@@ -75,7 +126,7 @@ type CardElementImageModule struct {
 
 	ImgKey string `json:"img_key"`
 	Alt CardElementText `json:"alt"`
-	Title *CardElementText `json:"alt"`
+	Title *CardElementText `json:"alt,omitempty"`
 }
 
 type CardElementActionModule struct {
@@ -90,51 +141,51 @@ type ActionButton struct {
 	Action
 
 	Text CardElementText `json:"text"`
-	Url string `json:"omitempty,url"`
+	Url string `json:"url,omitempty"`
 	MultiUrl *CardElementUrl `json:"multi_url"`
-	Type string `json:"omitempty,type"`
-	Value string `json:"omitempty,value"`
-	Confirm *CardElementConfirm `json:"confirm"`
+	Type string `json:"type,omitempty"`
+	Value string `json:"value,omitempty"`
+	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
 type ActionSelectMenu struct {
 	Action
 
-	Placeholder *CardElementText `json:"placeholder"`
-	InitialOption string `json:"omitempty,initial_option"`
+	Placeholder *CardElementText `json:"placeholder,omitempty"`
+	InitialOption string `json:"initial_option,omitempty"`
 	Options []CardElementOption `json:"options"`
-	Value string `json:"omitempty,value"`
-	Confirm *CardElementConfirm `json:"confirm"`
+	Value string `json:"value,omitempty"`
+	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
 type ActionOverflow struct {
 	Action
 
 	Options []CardElementOption `json:"options"`
-	Value string `json:"omitempty,value"`
-	Confirm *CardElementConfirm `json:"confirm"`
+	Value string `json:"value,omitempty"`
+	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
 type ActionDatePicker struct {
 	Action
 
-	InitialDate string `json:"omitempty,initial_date"`
-	InitialTime string `json:"omitempty,initial_time"`
-	InitialDatetime string `json:"omitempty,initial_datetime"`
-	Placeholder string `json:"omitempty,placeholder"`
-	Value string `json:"omitempty,value"`
-	Confirm *CardElementConfirm `json:"confirm"`
+	InitialDate string `json:"initial_date,omitempty"`
+	InitialTime string `json:"initial_time,omitempty"`
+	InitialDatetime string `json:"initial_datetime,omitempty"`
+	Placeholder string `json:"placeholder,omitempty"`
+	Value string `json:"value,omitempty"`
+	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
 type CardElementExtra struct {
 	Tag string `json:"tag"`
 	ImgKey string `json:"img_key"`
-	Alt *CardElementText `json:"alt"`
+	Alt *CardElementText `json:"alt,omitempty"`
 }
 
 type CardElementField struct {
 	IsShort bool `json:"is_short"`
-	Text *CardElementText `json:"text"`
+	Text *CardElementText `json:"text,omitempty"`
 }
 
 type I18nElement struct {
@@ -146,12 +197,12 @@ type I18nElement struct {
 type CardElementText struct {
 	Tag string `json:"tag"`
 	Content string `json:"content"`
-	Lines int `json:"omitempty,lines"`
+	Lines int `json:"lines,omitempty"`
 }
 
 type CardElementAction struct {
 	Tag string `json:"tag"`
-	Text *CardElementText `json:"text"`
+	Text *CardElementText `json:"text,omitempty"`
 	Type string `json:"type"`
 }
 
@@ -163,13 +214,13 @@ type CardElementUrl struct {
 }
 
 type CardElementConfirm struct {
-	Title *CardHeaderTitle `json:"title"`
-	Text *CardElementText `json:"text"`
+	Title *CardHeaderTitle `json:"title,omitempty"`
+	Text *CardElementText `json:"text,omitempty"`
 }
 
 type CardElementOption struct {
-	Text *CardElementText `json:"text"`
+	Text *CardElementText `json:"text,omitempty"`
 	Value string `json:"value"`
-	Url string `json:""omitempty,url"`
-	MultiUrl *CardElementUrl `json:"multi_url"`
+	Url string `json:"url,omitempty"`
+	MultiUrl *CardElementUrl `json:"multi_url,omitempty"`
 }

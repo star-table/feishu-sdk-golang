@@ -62,11 +62,15 @@ func PostRequest(url string, body string, headerOptions ...HeaderOption) (string
 }
 
 func Post(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
 	fullUrl := url + ConvertToQueryParams(params)
 	return PostRequest(fullUrl, body, headerOptions...)
 }
 
 func PostRepetition(url string, params []QueryParameter, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
 	fullUrl := url + ConvertToQueryParamsRepetition(params)
 	return PostRequest(fullUrl, body, headerOptions...)
 }
