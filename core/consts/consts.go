@@ -30,11 +30,17 @@ const(
 
 	//////////////////机器人发送消息
 	ApiRobotSendMessage = "https://open.feishu.cn/open-apis/message/v4/send/"
+
+	//////////////////角色
+	//获取角色列表
+	ApiRoleList = "https://open.feishu.cn/open-apis/contact/v2/role/list"
+	//获取角色成员列表
+	ApiRoleMemberList = "https://open.feishu.cn/open-apis/contact/v2/role/members"
 )
 
 //Other Const
 const(
-	TestAppId = "cli_9d40f5bf08f95108"
-	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket = "9e375ca96ab4aa724568e17bc16f925fd56d6878"
+	TestAppId = "xxx"
+	TestAppSecret = "xxx"
+	TestTicket = "xxx"
 )
