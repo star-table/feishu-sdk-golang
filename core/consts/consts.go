@@ -39,6 +39,14 @@ const(
 	ApiRoleList = "https://open.feishu.cn/open-apis/contact/v2/role/list"
 	//获取角色成员列表
 	ApiRoleMemberList = "https://open.feishu.cn/open-apis/contact/v2/role/members"
+
+	/////////////////////////////////////////////////////////
+	//创建日历
+	ApiCalendarCrate = "https://open.feishu.cn/open-apis/calendar/v3/calendars"
+	//获取日历
+	ApiCalendarGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list/"
+	//更新日历
+	ApiCalendarUpdate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/"
 )
 
 //Other Const
