@@ -1,7 +1,7 @@
 package consts
 
 //API Host const， v3
-const(
+const (
 	//获取 app_access_token（企业自建应用）
 	ApiAppAccessTokenInternal = "https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal/"
 	//获取 app_access_token（应用商店应用）
@@ -14,7 +14,6 @@ const(
 	ApiAppTicketResend = "https://open.feishu.cn/open-apis/auth/v3/app_ticket/resend/"
 	//获取登录用户身份
 	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
-
 
 	//////////////////部门和用户
 	//获取部门列表
@@ -42,16 +41,24 @@ const(
 
 	/////////////////////////////////////////////////////////
 	//创建日历
-	ApiCalendarCrate = "https://open.feishu.cn/open-apis/calendar/v3/calendars"
+	ApiCalendarCreate = "https://open.feishu.cn/open-apis/calendar/v3/calendars"
 	//获取日历
-	ApiCalendarGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list/"
+	ApiCalendarGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list/%s"
+	//获取日历列表
+	ApiCalendarListGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list"
 	//更新日历
-	ApiCalendarUpdate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/"
+	ApiCalendarUpdate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s"
+	//创建日程
+	ApiCalendarEventCreate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/events"
+	//删除日程
+	ApiCalendarEventDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/events/%s"
+	//邀请/移除日程参与者
+	ApiCalendarEventAttendeesUpdate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/events/%s/attendees"
 )
 
 //Other Const
-const(
-	TestAppId = "cli_9d40f5bf08f95108"
+const (
+	TestAppId     = "cli_9d40f5bf08f95108"
 	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket = "c72293913862fdd6d423f61283adbe0b91980c5d"
+	TestTicket    = "06ed7aef3bfa26c4cb7ebdc87939110a66e5a2f7"
 )
