@@ -52,6 +52,17 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [ ] 获取用户所在的群列表
   - [ ] 获取群成员列表
   - [ ] 搜索用户所在的群列表
-  
+- [ ] 日历
+  - [x] 获取日历
+  - [x] 获取日历列表
+  - [x] 创建日历
+  - [x] 删除日历
+  - [x] 更新日历
+  - [x] 获取日程
+  - [x] 创建日程
+  - [x] 获取日程列表
+  - [x] 删除日程
+  - [x] 更新日程
+  - [x] 邀请/移除日程参与者
 
   
