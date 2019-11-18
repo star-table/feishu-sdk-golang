@@ -19,8 +19,9 @@ type BatchMsgVo struct {
 	OpenIds []string `json:"open_ids"`
 	UserIds []string `json:"user_ids"`
 	MsgType string `json:"msg_type"`
-	
-	Content MsgContent `json:"content"`
+
+	Card *Card `json:"card,omitempty"`
+	Content *MsgContent `json:"content,omitempty"`
 }
 
 type MsgContent struct {
