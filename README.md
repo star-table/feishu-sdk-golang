@@ -20,9 +20,9 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [x] 获取部门详情
   - [ ] 批量获取部门详情
   - [x] 获取部门用户列表
-  - [ ] 获取部门用户详情
+  - [x] 获取部门用户详情
   - [ ] 获取企业自定义用户属性配置
-  - [ ] 批量获取用户信息
+  - [x] 批量获取用户信息
   - [ ] 新增用户
   - [ ] 更新用户信息
   - [ ] 删除用户
@@ -52,7 +52,15 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [ ] 获取用户所在的群列表
   - [ ] 获取群成员列表
   - [ ] 搜索用户所在的群列表
-- [ ] 日历
+- [ ] 机器人
+  - [x] 批量发送消息
+  - [x] 发送文本消息
+  - [x] 发送图片消息
+  - [x] 发送富文本消息
+  - [ ] 发送群名片
+  - [ ] 消息撤回
+  - [x] 发送卡片通知
+- [x] 日历
   - [x] 获取日历
   - [x] 获取日历列表
   - [x] 创建日历
