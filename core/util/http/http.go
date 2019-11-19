@@ -22,7 +22,7 @@ type HeaderOption struct {
 }
 
 type QueryParameter struct {
-	Key string
+	Key   string
 	Value interface{}
 }
 
@@ -36,16 +36,16 @@ func init() {
 	}
 }
 
-func BuildTokenHeaderOptions(tenantAccessToken string) HeaderOption{
+func BuildTokenHeaderOptions(tenantAccessToken string) HeaderOption {
 	return HeaderOption{
-		Name: "Authorization",
+		Name:  "Authorization",
 		Value: "Bearer " + tenantAccessToken,
 	}
 }
 
-func PostRequest(url string, body string, headerOptions ...HeaderOption) (string, error) {
-	req, err := http.NewRequest("POST", url, strings.NewReader(body))
-	if err != nil{
+func DeleteRequest(url string, body string, headerOptions ...HeaderOption) (string, error) {
+	req, err := http.NewRequest("DELETE", url, strings.NewReader(body))
+	if err != nil {
 		return "", err
 	}
 	req.Header.Set("Content-Type", defaultContentType)
@@ -53,8 +53,58 @@ func PostRequest(url string, body string, headerOptions ...HeaderOption) (string
 		req.Header.Set(headerOption.Name, headerOption.Value)
 	}
 	resp, err := httpClient.Do(req)
-	defer func(){
-		if e := resp.Body.Close(); e != nil{
+	defer func() {
+		if e := resp.Body.Close(); e != nil {
+			fmt.Println(e)
+		}
+	}()
+	return responseHandle(resp, err)
+}
+
+func Delete(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
+	fullUrl := url + ConvertToQueryParams(params)
+	return DeleteRequest(fullUrl, body, headerOptions...)
+}
+
+func PatchRequest(url string, body string, headerOptions ...HeaderOption) (string, error) {
+	req, err := http.NewRequest("PATCH", url, strings.NewReader(body))
+	if err != nil {
+		return "", err
+	}
+	req.Header.Set("Content-Type", defaultContentType)
+	for _, headerOption := range headerOptions {
+		req.Header.Set(headerOption.Name, headerOption.Value)
+	}
+	resp, err := httpClient.Do(req)
+	defer func() {
+		if e := resp.Body.Close(); e != nil {
+			fmt.Println(e)
+		}
+	}()
+	return responseHandle(resp, err)
+}
+
+func Patch(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
+	fullUrl := url + ConvertToQueryParams(params)
+	return PatchRequest(fullUrl, body, headerOptions...)
+}
+
+func PostRequest(url string, body string, headerOptions ...HeaderOption) (string, error) {
+	req, err := http.NewRequest("POST", url, strings.NewReader(body))
+	if err != nil {
+		return "", err
+	}
+	req.Header.Set("Content-Type", defaultContentType)
+	for _, headerOption := range headerOptions {
+		req.Header.Set(headerOption.Name, headerOption.Value)
+	}
+	resp, err := httpClient.Do(req)
+	defer func() {
+		if e := resp.Body.Close(); e != nil {
 			fmt.Println(e)
 		}
 	}()
@@ -62,26 +112,30 @@ func PostRequest(url string, body string, headerOptions ...HeaderOption) (string
 }
 
 func Post(url string, params map[string]interface{}, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
 	fullUrl := url + ConvertToQueryParams(params)
 	return PostRequest(fullUrl, body, headerOptions...)
 }
 
 func PostRepetition(url string, params []QueryParameter, body string, headerOptions ...HeaderOption) (string, error) {
+	log.InfoF("请求body %s", body)
+
 	fullUrl := url + ConvertToQueryParamsRepetition(params)
 	return PostRequest(fullUrl, body, headerOptions...)
 }
 
 func GetRequest(url string, headerOptions ...HeaderOption) (string, error) {
 	req, err := http.NewRequest("GET", url, nil)
-	if err != nil{
+	if err != nil {
 		return "", err
 	}
 	for _, headerOption := range headerOptions {
 		req.Header.Set(headerOption.Name, headerOption.Value)
 	}
 	resp, err := httpClient.Do(req)
-	defer func(){
-		if e := resp.Body.Close(); e != nil{
+	defer func() {
+		if e := resp.Body.Close(); e != nil {
 			fmt.Println(e)
 		}
 	}()
@@ -109,7 +163,7 @@ func responseHandle(resp *http.Response, err error) (string, error) {
 		return "", err
 	}
 	respBody := string(b)
-	//log.InfoF("api %s 响应结果: %s", resp.Request.URL, respBody)
+	log.InfoF("api %s 响应结果: %s", resp.Request.URL, respBody)
 	return respBody, nil
 }
 

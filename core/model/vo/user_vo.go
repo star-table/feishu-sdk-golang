@@ -5,6 +5,16 @@ type GetDepartmentUserListRespVo struct {
 	Data *GetDepartmentUserListRespVoData `json:"data"`
 }
 
+type GetDepartmentUserDetailListRespVo struct {
+	CommonVo
+	Data *GetDepartmentUserDetailListRespVoData `json:"data"`
+}
+
+type GetDepartmentUserDetailListRespVoData struct {
+	HasMore bool `json:"has_more"`
+	UserInfos []UserDetailInfo `json:"user_infos"`
+}
+
 type GetDepartmentUserListRespVoData struct {
 	HasMore bool `json:"has_more"`
 	UserList []UserRestInfoVo `json:"user_list"`
@@ -13,6 +23,7 @@ type GetDepartmentUserListRespVoData struct {
 type UserRestInfoVo struct {
 	EmployeeId string `json:"employee_id"`
 	OpenId string `json:"open_id"`
+	UserId string `json:"user_id"`
 	Name string `json:"name"`
 	EmployeeNo string `json:"employee_no"`
 }
@@ -67,10 +78,10 @@ type UserDetailInfo struct {
 	NamePy string `json:"name_py"`
 	EnName string `json:"en_name"`
 	EmployeeId string `json:"employee_id"`
-	EmployeeNode string `json:"employee_node"`
+	EmployeeNo string `json:"employee_no"`
 	OpenId string `json:"open_id"`
-	Status string `json:"status"`
-	EmployeeType string `json:"employee_type"`
+	Status int `json:"status"`
+	EmployeeType int `json:"employee_type"`
 	Avatar71 string `json:"avatar_71"`
 	Avatar240 string `json:"avatar_240"`
 	Avatar640 string `json:"avatar_640"`

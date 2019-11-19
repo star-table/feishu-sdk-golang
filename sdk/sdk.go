@@ -41,7 +41,7 @@ func BuildApp(appId, appSecret, appTicket string) (*App, error){
 	return &App{
 		AppId: appId,
 		AppSecret: appSecret,
-		AppAccessToken: appSecret,
+		AppAccessToken: resp.AppAccessToken,
 	}, nil
 }
 

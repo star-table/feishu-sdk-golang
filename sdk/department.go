@@ -59,6 +59,24 @@ func (t Tenant) GetDepartmentUserList(departmentId string, offset, pageSize int,
 	return respVo, nil
 }
 
+//获取部门用户详情列表 https://open.feishu.cn/document/ukTMukTMukTM/uYzN3QjL2czN04iN3cDN?lang=zh-CN
+func (t Tenant) GetDepartmentUserDetailList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentUserDetailListRespVo, error){
+	queryParams := map[string]interface{}{
+		"department_id": departmentId,
+		"offset": offset,
+		"page_size": pageSize,
+		"fetch_child": fetchChild,
+	}
+	respBody, err := http.Get(consts.ApiDepartmentUserDetailList, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentUserDetailListRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //批量获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uIzNz4iM3MjLyczM
 func (t Tenant) GetUserBatchGet(employeeIds []string, openIds []string) (*vo.GetUserBatchGetRespVo, error){
 	queryParams := make([]http.QueryParameter, 0)

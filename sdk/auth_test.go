@@ -21,3 +21,10 @@ func TestGetAppAccessTokenInternal(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
 }
+
+func TestAppTicketResend(t *testing.T) {
+	resp, err := AppTicketResend(consts.TestAppId, consts.TestAppSecret)
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
