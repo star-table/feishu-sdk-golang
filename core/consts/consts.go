@@ -60,5 +60,10 @@ const (
 const (
 	TestAppId     = "cli_9d40f5bf08f95108"
 	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket    = "06ed7aef3bfa26c4cb7ebdc87939110a66e5a2f7"
+	TestTicket    = "56a5f577e1ab04644e2eb847612029e03378ee76"
+)
+
+const (
+	AccessRoleReader         = "reader"
+	AccessRoleFreeBusyReader = "free_busy_reader"
 )
