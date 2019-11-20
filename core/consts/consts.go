@@ -56,16 +56,27 @@ const (
 	ApiCalendarEventDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/events/%s"
 	//邀请/移除日程参与者
 	ApiCalendarEventAttendeesUpdate = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/events/%s/attendees"
+	//获取访问控制列表
+	ApiCalendarAttendeesGet = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl"
+	//删除访问空值
+	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d40f5bf08f95108"
 	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket    = "56a5f577e1ab04644e2eb847612029e03378ee76"
+	TestTicket    = "dff44d626a310eee3dea345e993032cab8f5b43c"
 )
 
 const (
 	AccessRoleReader         = "reader"
 	AccessRoleFreeBusyReader = "free_busy_reader"
+	AccessRoleWriter         = "writer"
+	AccessRoleOwner          = "owner"
+)
+
+const (
+	ActionInvite = "invite"
+	ActionRemove = "remove"
 )

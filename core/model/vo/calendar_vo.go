@@ -50,7 +50,7 @@ type CreateCalendarEventReq struct {
 
 type TimeFormat struct {
 	Date      string `json:"date,omitempty"`
-	TimeStamp int    `json:"time_stamp,omitempty"`
+	TimeStamp int64  `json:"time_stamp,omitempty"`
 	TimeZone  string `json:"time_zone,omitempty"`
 }
 
@@ -95,4 +95,25 @@ type UpdateCalendarEventAtendeesReq struct {
 type UpdateCalendarEventAtendeesResp struct {
 	CommonVo
 	Data []Attendees `json:"data"`
+}
+
+type GetCalendarAttendeesResp struct {
+	CommonVo
+	Data []CalendarAttendeesAcl `json:"data"`
+}
+
+type CalendarAttendeesAcl struct {
+	Role  string        `json:"role"`
+	Scope CalendarScope `json:"scope"`
+}
+
+type CalendarScope struct {
+	Type       string `json:"type"`
+	OpenId     string `json:"open_id,omitempty"`
+	EmployeeId string `json:"employee_id,omitempty"`
+}
+
+type AddCalendarAttendeesAclReq struct {
+	Role  string        `json:"role"`
+	Scope CalendarScope `json:"scope"`
 }

@@ -138,3 +138,39 @@ func (t Tenant) UpdateCalendarEventAttendees(calendarId string, eventId string, 
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//获取访问控制列表 https://open.feishu.cn/document/ukTMukTMukTM/uMjM14yMyUjLzITN
+func (t Tenant) GetCalendarAttendeesAcl(calendarId string) (*vo.GetCalendarAttendeesResp, error) {
+	respBody, err := http.Get(fmt.Sprintf(consts.ApiCalendarAttendeesGet, calendarId), nil, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetCalendarAttendeesResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//创建访问控制 https://open.feishu.cn/document/ukTMukTMukTM/uQjM14CNyUjL0ITN
+func (t Tenant) AddCalendarAttendeesAcl(calendarId string, bodyParams vo.AddCalendarAttendeesAclReq) (*vo.GetCalendarAttendeesResp, error) {
+	respBody, err := http.Post(fmt.Sprintf(consts.ApiCalendarAttendeesGet, calendarId), nil, json.ToJsonIgnoreError(bodyParams), http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetCalendarAttendeesResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//删除访问控制 https://open.feishu.cn/document/ukTMukTMukTM/uUjM14SNyUjL1ITN
+func (t Tenant) DeleteCalendarAttendeesAcl(calendarId string, ruleId string) (*vo.CommonVo, error) {
+	respBody, err := http.Delete(fmt.Sprintf(consts.ApiCalendarAttendeesDelete, calendarId, ruleId), nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.CommonVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
