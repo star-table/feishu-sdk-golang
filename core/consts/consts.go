@@ -14,6 +14,8 @@ const (
 	ApiAppTicketResend = "https://open.feishu.cn/open-apis/auth/v3/app_ticket/resend/"
 	//获取登录用户身份
 	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
+	//code2session
+	ApiTokenLoginValidate = "https://open.feishu.cn/open-apis/mina/v2/tokenLoginValidate"
 
 	//////////////////部门和用户
 	//获取部门列表

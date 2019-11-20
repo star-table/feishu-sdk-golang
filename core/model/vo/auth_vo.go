@@ -48,3 +48,22 @@ type OAuth2UserInfoRespVo struct {
 	EmployeeId string `json:"EmployeeId"`
 	Mobile string `json:"Mobile"`
 }
+
+type TokenLoginValidateResp struct {
+	Data TokenLoginValidateRespData `json:"data"`
+
+	CommonVo
+}
+
+type TokenLoginValidateRespData struct {
+	Uid string `json:"uid"`
+	OpenId string `json:"open_id"`
+	UnionId string `json:"union_id"`
+	SessionKey string `json:"session_key"`
+	TenantKey string `json:"tenant_key"`
+	EmployeeId string `json:"employee_id"`
+	TokenType string `json:"token_type"`
+	AccessToken string `json:"access_token"`
+	ExpiresIn int64 `json:"expires_in"`
+	RefreshToken string `json:"refresh_token"`
+}

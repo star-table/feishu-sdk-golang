@@ -28,3 +28,10 @@ func TestAppTicketResend(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
 }
+
+func TestTokenLoginValidate(t *testing.T) {
+	resp, err := TokenLoginValidate("a-566311d2cf88d054a4fcfc23233a448f2fccba11", "1c3a78be18ac815a")
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
