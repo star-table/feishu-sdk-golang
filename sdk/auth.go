@@ -112,3 +112,18 @@ func GetOAuth2UserInfo(userAccessToken string) (*vo.OAuth2UserInfoRespVo, error)
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//code2session https://open.feishu.cn/document/ukTMukTMukTM/ukjM04SOyQjL5IDN?lang=zh-CN
+func TokenLoginValidate(appAccessToken string, code string) (*vo.TokenLoginValidateResp, error){
+	req := map[string]string{
+		"code": code,
+	}
+	respBody, err := http.Post(consts.ApiTokenLoginValidate, nil, json.ToJsonIgnoreError(req), http.BuildTokenHeaderOptions(appAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.TokenLoginValidateResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
