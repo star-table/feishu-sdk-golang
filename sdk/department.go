@@ -96,7 +96,7 @@ func (t Tenant) GetUserBatchGet(employeeIds []string, openIds []string) (*vo.Get
 			})
 		}
 	}
-	respBody, err := http.GetRepetition(consts.ApiDepartmentUserList, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	respBody, err := http.GetRepetition(consts.ApiUserBatchGet, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
 	if err != nil{
 		log.Error(err)
 		return nil, err
