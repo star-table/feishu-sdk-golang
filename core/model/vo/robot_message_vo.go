@@ -138,7 +138,7 @@ type ActionButton struct {
 	Url string `json:"url,omitempty"`
 	MultiUrl *CardElementUrl `json:"multi_url"`
 	Type string `json:"type,omitempty"`
-	Value string `json:"value,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
@@ -148,7 +148,7 @@ type ActionSelectMenu struct {
 	Placeholder *CardElementText `json:"placeholder,omitempty"`
 	InitialOption string `json:"initial_option,omitempty"`
 	Options []CardElementOption `json:"options"`
-	Value string `json:"value,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
@@ -156,7 +156,7 @@ type ActionOverflow struct {
 	Tag string `json:"tag"`
 
 	Options []CardElementOption `json:"options"`
-	Value string `json:"value,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
