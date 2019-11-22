@@ -167,7 +167,7 @@ type ActionDatePicker struct {
 	InitialTime string `json:"initial_time,omitempty"`
 	InitialDatetime string `json:"initial_datetime,omitempty"`
 	Placeholder *CardElementText `json:"placeholder,omitempty"`
-	Value string `json:"value,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 	Confirm *CardElementConfirm `json:"confirm,omitempty"`
 }
 
