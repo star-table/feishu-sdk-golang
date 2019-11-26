@@ -18,6 +18,8 @@ const (
 	ApiTokenLoginValidate = "https://open.feishu.cn/open-apis/mina/v2/tokenLoginValidate"
 
 	//////////////////部门和用户
+	//获取通讯录授权范围
+	ApiScope = "https://open.feishu.cn/open-apis/contact/v1/scope/get"
 	//获取部门列表
 	ApiDepartmentSimpleList = "https://open.feishu.cn/open-apis/contact/v1/department/simple/list"
 	//获取部门详情
