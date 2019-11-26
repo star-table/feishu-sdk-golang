@@ -8,6 +8,18 @@ import (
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 )
 
+//获取通讯录授权范围 https://open.feishu.cn/document/ukTMukTMukTM/ugjNz4CO2MjL4YzM?lang=zh-CN
+func (t Tenant) GetScope() (*vo.GetScopeRespVo, error){
+	respBody, err := http.Get(consts.ApiScope, nil, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetScopeRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取子部门列表 https://open.feishu.cn/document/ukTMukTMukTM/ugzN3QjL4czN04CO3cDN
 func (t Tenant) GetDepartmentSimpleList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentSimpleListRespVo, error){
 	queryParams := map[string]interface{}{
