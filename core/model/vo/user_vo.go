@@ -33,6 +33,17 @@ type GetDepartmentSimpleListRespVo struct {
 	Data *GetDepartmentSimpleListRespVoData `json:"data"`
 }
 
+type GetScopeRespVo struct {
+	CommonVo
+	Data *GetScopeRespData `json:"data"`
+}
+
+type GetScopeRespData struct {
+	AuthedDepartments []string `json:"authed_departments"`
+	AuthedEmployeeIds []string `json:"authed_employee_ids"`
+	AuthedOpenIds []string `json:"authed_open_ids"`
+}
+
 type GetDepartmentSimpleListRespVoData struct {
 	HasMore bool `json:"has_more"`
 	DepartmentInfos []DepartmentRestInfoVo `json:"department_infos"`

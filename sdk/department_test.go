@@ -9,6 +9,19 @@ import (
 	"testing"
 )
 
+func TestTenant_GetScope(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	t.Log(e)
+
+	resp, err := tenant.GetScope()
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
 func TestGetDepartmentSimpleList(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
