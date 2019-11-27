@@ -180,3 +180,50 @@ func TestTenant_SendMessage_Card_Daily_Report(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
 }
+
+func TestTenant_SendMessage_PC_Applet(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	t.Log(e)
+
+	resp, err := tenant.SendMessageBatch(vo.BatchMsgVo{
+		OpenIds: []string{"ou_e1b43c426e884c586d52751853896688", "ou_64c74b3ffeb5ad1693ab830384373b5a"},
+		MsgType: "interactive",
+		Card: &vo.Card{
+			Config: &vo.CardConfig{
+				WideScreenMode: true,
+			},
+			Header: &vo.CardHeader{
+				Title: &vo.CardHeaderTitle{
+					Tag: "plain_text",
+					Content: "Pc小程序预览页",
+				},
+			},
+			Elements: []interface{}{
+				vo.CardElementActionModule{
+					Tag: "action",
+					Actions: []interface{}{
+						vo.ActionButton{
+							Tag: "button",
+							Text: vo.CardElementText{
+								Tag: "plain_text",
+								Content: "点击预览",
+							},
+							MultiUrl: &vo.CardElementUrl{
+								PcUrl: "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
+								IosUrl: "https://baidu.com",
+								AndroidUrl: "http://app.bjx.cloud/project",
+							},
+							Type: "default",
+						},
+					},
+				},
+			},
+		},
+	})
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
