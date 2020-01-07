@@ -62,13 +62,16 @@ const (
 	ApiCalendarAttendeesGet = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl"
 	//删除访问空值
 	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
+
+	//搜索用户
+	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "454e9fec44c895627c1e80c55892628c1a7a7904"
+	TestTicket    = "b948c230d0a5f2f13b900a5b9cedd9460d50a82a"
 )
 
 const (
