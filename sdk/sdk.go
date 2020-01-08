@@ -15,6 +15,10 @@ type Tenant struct {
 	TenantAccessToken string
 }
 
+type User struct {
+	UserAccessToken string
+}
+
 func BuildInternalApp(appId, appSecret string) (*App, error){
 	resp, err := GetAppAccessTokenInternal(appId, appSecret)
 	if err != nil{

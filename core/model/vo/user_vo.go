@@ -116,3 +116,29 @@ type UserDetailInfo struct {
 type Entry struct {
 	Value string `json:"value"`
 }
+
+type SearchUserResp struct {
+	CommonVo
+	Data *SearchUserRespData `json:"data"`
+}
+
+type SearchUserRespData struct {
+	HasMore bool `json:"has_more"`
+	PageToken string `json:"page_token"`
+	Users []SearchUserInfo `json:"users"`
+}
+
+type SearchUserInfo struct {
+	Avatar UserAvatar `json:"avatar"`
+	DepartmentIds []string `json:"department_ids"`
+	Name string `json:"name"`
+	OpenId string `json:"open_id"`
+	UserId string `json:"user_id"`
+}
+
+type UserAvatar struct {
+	Avatar72 string `json:"avatar_72"`
+	Avatar240 string `json:"avatar_240"`
+	Avatar640 string `json:"avatar_640"`
+	AvatarOrigin string `json:"avatar_origin"`
+}

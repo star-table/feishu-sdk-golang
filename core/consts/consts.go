@@ -30,6 +30,8 @@ const (
 	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
 	//批量获取用户信息
 	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
+	//批量获取用户信息v2
+	ApiUserBatchGetV2 = "https://open.feishu.cn/open-apis/contact/v2/user/batch_get"
 
 	//////////////////机器人发送消息
 	//机器人发送消息
@@ -62,13 +64,16 @@ const (
 	ApiCalendarAttendeesGet = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl"
 	//删除访问空值
 	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
+
+	//搜索用户
+	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "454e9fec44c895627c1e80c55892628c1a7a7904"
+	TestTicket    = "7abc86a1650598f2168c1cc9d035e6b9430009ef"
 )
 
 const (

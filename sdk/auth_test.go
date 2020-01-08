@@ -27,16 +27,21 @@ func TestAppTicketResend(t *testing.T) {
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
+	//
+	//resp, err = AppTicketResend("cli_9d40f5bf08f95108", "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP")
+	//log.Info(json.ToJsonIgnoreError(resp), err)
+	//assert.Equal(t, err, nil)
+	//assert.Equal(t, resp.Code, 0)
+	//
+	//resp, err = AppTicketResend("cli_9d511af667bd1101", "GESwFvoks5xQEr1t7dC4uhKR3cm1bg3S")
+	//log.Info(json.ToJsonIgnoreError(resp), err)
+	//assert.Equal(t, err, nil)
+	//assert.Equal(t, resp.Code, 0)
 
-	resp, err = AppTicketResend("cli_9d40f5bf08f95108", "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP")
-	log.Info(json.ToJsonIgnoreError(resp), err)
-	assert.Equal(t, err, nil)
-	assert.Equal(t, resp.Code, 0)
-
-	resp, err = AppTicketResend("cli_9d511af667bd1101", "GESwFvoks5xQEr1t7dC4uhKR3cm1bg3S")
-	log.Info(json.ToJsonIgnoreError(resp), err)
-	assert.Equal(t, err, nil)
-	assert.Equal(t, resp.Code, 0)
+	//resp, err = AppTicketResend("cli_9d3ae99f30eb9102", "O7Z43hPSFF1PHhRk8gVBOd3l36g8L5UG")
+	//log.Info(json.ToJsonIgnoreError(resp), err)
+	//assert.Equal(t, err, nil)
+	//assert.Equal(t, resp.Code, 0)
 }
 
 func TestTokenLoginValidate(t *testing.T) {
