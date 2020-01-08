@@ -9,10 +9,10 @@ import (
 func TestUser_SearchUser(t *testing.T) {
 
 	user := User{
-		UserAccessToken: "u-cSD8NdMRKX6hlDelxWqxSg",
+		UserAccessToken: "u-ahufHbuFHqXVOM0HqlXCxd",
 	}
 
-	resp, err := user.SearchUser("l", 0, "")
+	resp, err := user.SearchUser("abcde", 0, "")
 	t.Log(err)
 	t.Log(json.ToJsonIgnoreError(resp))
 }

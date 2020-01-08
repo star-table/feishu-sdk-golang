@@ -67,13 +67,16 @@ const (
 
 	//搜索用户
 	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
+
+	//检验应用管理员
+	ApiIsUserAdmin = "https://open.feishu.cn/open-apis/application/v3/is_user_admin"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "7abc86a1650598f2168c1cc9d035e6b9430009ef"
+	TestTicket    = "03050a75e8a7914bd43bf7d705025c4ff53bce6f"
 )
 
 const (

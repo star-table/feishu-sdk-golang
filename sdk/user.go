@@ -8,7 +8,7 @@ import (
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 )
 
-//获取部门用户列表 https://open.feishu.cn/document/ukTMukTMukTM/uEzNz4SM3MjLxczM
+//搜索用户 https://bytedance.feishu.cn/docs/doccnizryz7NKuUmVfkRJWeZGVc
 func (u User) SearchUser(query string, pageSize int, pageToken string) (*vo.SearchUserResp, error){
 	queryParams := map[string]interface{}{
 	}
