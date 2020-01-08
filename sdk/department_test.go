@@ -30,6 +30,13 @@ func TestTenant_GetScope(t *testing.T) {
 	assert.Equal(t, resp1.Code, 0)
 
 	t.Log(json.ToJsonIgnoreError(resp1))
+
+	//resp1, err = tenant.GetUserBatchGetV2(nil, openIds)
+	//log.Info(json.ToJsonIgnoreError(resp1), err)
+	//assert.Equal(t, err, nil)
+	//assert.Equal(t, resp1.Code, 0)
+	//
+	//t.Log(json.ToJsonIgnoreError(resp1))
 }
 
 func TestGetDepartmentSimpleList(t *testing.T) {

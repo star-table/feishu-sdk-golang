@@ -8,7 +8,7 @@ import (
 func TestUser_SearchUser(t *testing.T) {
 
 	user := User{
-		UserAccessToken: "u-X7iHiq3dWFWavEv7W1kQza",
+		UserAccessToken: "u-JJSpC2QT03VM3c5hV3I7ic",
 	}
 
 	resp, err := user.SearchUser("1", 0, "")

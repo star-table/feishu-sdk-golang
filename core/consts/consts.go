@@ -30,6 +30,8 @@ const (
 	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
 	//批量获取用户信息
 	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
+	//批量获取用户信息v2
+	ApiUserBatchGetV2 = "https://open.feishu.cn/open-apis/contact/v2/user/batch_get"
 
 	//////////////////机器人发送消息
 	//机器人发送消息
@@ -71,7 +73,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "b948c230d0a5f2f13b900a5b9cedd9460d50a82a"
+	TestTicket    = "da60b4aae6511c2973d459359676859cb81e9072"
 )
 
 const (
