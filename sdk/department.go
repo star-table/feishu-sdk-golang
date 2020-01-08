@@ -119,30 +119,30 @@ func (t Tenant) GetUserBatchGet(employeeIds []string, openIds []string) (*vo.Get
 }
 
 //批量获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uIzNz4iM3MjLyczM
-//func (t Tenant) GetUserBatchGetV2(employeeIds []string, openIds []string) (*vo.GetUserBatchGetRespVo, error){
-//	queryParams := make([]http.QueryParameter, 0)
-//	if employeeIds != nil && len(employeeIds) > 0{
-//		for _, id := range employeeIds{
-//			queryParams = append(queryParams, http.QueryParameter{
-//				Key: "employee_ids",
-//				Value: id,
-//			})
-//		}
-//	}
-//	if openIds != nil && len(openIds) > 0{
-//		for _, id := range openIds{
-//			queryParams = append(queryParams, http.QueryParameter{
-//				Key: "open_ids",
-//				Value: id,
-//			})
-//		}
-//	}
-//	respBody, err := http.GetRepetition(consts.ApiUserBatchGetV2, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
-//	if err != nil{
-//		log.Error(err)
-//		return nil, err
-//	}
-//	respVo := &vo.GetUserBatchGetRespVo{}
-//	json.FromJsonIgnoreError(respBody, respVo)
-//	return respVo, nil
-//}
+func (t Tenant) GetUserBatchGetV2(employeeIds []string, openIds []string) (*vo.GetUserBatchGetRespVo, error){
+	queryParams := make([]http.QueryParameter, 0)
+	if employeeIds != nil && len(employeeIds) > 0{
+		for _, id := range employeeIds{
+			queryParams = append(queryParams, http.QueryParameter{
+				Key: "employee_ids",
+				Value: id,
+			})
+		}
+	}
+	if openIds != nil && len(openIds) > 0{
+		for _, id := range openIds{
+			queryParams = append(queryParams, http.QueryParameter{
+				Key: "open_ids",
+				Value: id,
+			})
+		}
+	}
+	respBody, err := http.GetRepetition(consts.ApiUserBatchGetV2, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetUserBatchGetRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

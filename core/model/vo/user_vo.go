@@ -130,10 +130,10 @@ type SearchUserRespData struct {
 
 type SearchUserInfo struct {
 	Avatar UserAvatar `json:"avatar"`
-	DepartmentIds []string `json:"departmentIds"`
+	DepartmentIds []string `json:"department_ids"`
 	Name string `json:"name"`
-	OpenId string `json:"openId"`
-	UserId string `json:"userId"`
+	OpenId string `json:"open_id"`
+	UserId string `json:"user_id"`
 }
 
 type UserAvatar struct {
