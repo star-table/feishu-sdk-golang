@@ -20,6 +20,18 @@ func (t Tenant) GetScope() (*vo.GetScopeRespVo, error){
 	return respVo, nil
 }
 
+//获取通讯录授权范围 v2 https://open.feishu.cn/document/ukTMukTMukTM/ugjNz4CO2MjL4YzM?lang=zh-CN
+func (t Tenant) GetScopeV2() (*vo.GetScopeRespV2Vo, error){
+	respBody, err := http.Get(consts.ApiScopeV2, nil, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetScopeRespV2Vo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取子部门列表 https://open.feishu.cn/document/ukTMukTMukTM/ugzN3QjL4czN04CO3cDN
 func (t Tenant) GetDepartmentSimpleList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentSimpleListRespVo, error){
 	queryParams := map[string]interface{}{
@@ -37,6 +49,30 @@ func (t Tenant) GetDepartmentSimpleList(departmentId string, offset, pageSize in
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//获取子部门列表v2 https://open.feishu.cn/document/ukTMukTMukTM/ugzN3QjL4czN04CO3cDN
+func (t Tenant) GetDepartmentSimpleListV2(id string, pageToken string, pageSize int, fetchChild bool) (*vo.GetDepartmentSimpleListV2RespVo, error){
+	queryParams := map[string]interface{}{
+		"id": id,
+		"fetch_child": fetchChild,
+	}
+	if pageToken != ""{
+		queryParams["page_token"] = pageToken
+	}
+	if pageSize > 0{
+		queryParams["page_size"] = pageSize
+	}
+
+	respBody, err := http.Get(consts.ApiDepartmentSimpleListV2, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentSimpleListV2RespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 
 //获取部门详情 https://open.feishu.cn/document/ukTMukTMukTM/uAzNz4CM3MjLwczM
 func (t Tenant) GetDepartmentInfo(departmentId string) (*vo.GetDepartmentInfoRespVo, error){
@@ -71,6 +107,29 @@ func (t Tenant) GetDepartmentUserList(departmentId string, offset, pageSize int,
 	return respVo, nil
 }
 
+//获取部门用户列表 https://open.feishu.cn/document/ukTMukTMukTM/uEzNz4SM3MjLxczM
+func (t Tenant) GetDepartmentUserListV2(departmentId string, pageToken string, pageSize int, fetchChild bool) (*vo.GetDepartmentUserListV2RespVo, error){
+	queryParams := map[string]interface{}{
+		"id": departmentId,
+		"fetch_child": fetchChild,
+	}
+	if pageToken != ""{
+		queryParams["page_token"] = pageToken
+	}
+	if pageSize > 0{
+		queryParams["page_size"] = pageSize
+	}
+
+	respBody, err := http.Get(consts.ApiDepartmentUserListV2, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentUserListV2RespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取部门用户详情列表 https://open.feishu.cn/document/ukTMukTMukTM/uYzN3QjL2czN04iN3cDN?lang=zh-CN
 func (t Tenant) GetDepartmentUserDetailList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentUserDetailListRespVo, error){
 	queryParams := map[string]interface{}{
@@ -85,6 +144,28 @@ func (t Tenant) GetDepartmentUserDetailList(departmentId string, offset, pageSiz
 		return nil, err
 	}
 	respVo := &vo.GetDepartmentUserDetailListRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//获取部门用户详情列表V2 https://open.feishu.cn/document/ukTMukTMukTM/uYzN3QjL2czN04iN3cDN?lang=zh-CN
+func (t Tenant) GetDepartmentUserDetailListV2(departmentId string, pageToken string, pageSize int, fetchChild bool) (*vo.GetUserBatchGetV2Resp, error){
+	queryParams := map[string]interface{}{
+		"id": departmentId,
+		"fetch_child": fetchChild,
+	}
+	if pageToken != ""{
+		queryParams["page_token"] = pageToken
+	}
+	if pageSize > 0{
+		queryParams["page_size"] = pageSize
+	}
+	respBody, err := http.Get(consts.ApiDepartmentUserDetailListV2, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetUserBatchGetV2Resp{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
@@ -119,7 +200,7 @@ func (t Tenant) GetUserBatchGet(employeeIds []string, openIds []string) (*vo.Get
 }
 
 //批量获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uIzNz4iM3MjLyczM
-func (t Tenant) GetUserBatchGetV2(employeeIds []string, openIds []string) (*vo.GetUserBatchGetRespVo, error){
+func (t Tenant) GetUserBatchGetV2(employeeIds []string, openIds []string) (*vo.GetUserBatchGetV2Resp, error){
 	queryParams := make([]http.QueryParameter, 0)
 	if employeeIds != nil && len(employeeIds) > 0{
 		for _, id := range employeeIds{
@@ -142,7 +223,7 @@ func (t Tenant) GetUserBatchGetV2(employeeIds []string, openIds []string) (*vo.G
 		log.Error(err)
 		return nil, err
 	}
-	respVo := &vo.GetUserBatchGetRespVo{}
+	respVo := &vo.GetUserBatchGetV2Resp{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }

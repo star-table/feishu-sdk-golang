@@ -20,14 +20,25 @@ const (
 	//////////////////部门和用户
 	//获取通讯录授权范围
 	ApiScope = "https://open.feishu.cn/open-apis/contact/v1/scope/get"
+	//获取通讯录授权范围v2
+	ApiScopeV2 = "https://open.feishu.cn/open-apis/contact/v2/scope/get"
+
 	//获取部门列表
 	ApiDepartmentSimpleList = "https://open.feishu.cn/open-apis/contact/v1/department/simple/list"
+	//获取部门列表 v2
+	ApiDepartmentSimpleListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/simple/list"
+
 	//获取部门详情
 	ApiDepartmentInfoGet = "https://open.feishu.cn/open-apis/contact/v1/department/info/get"
 	//获取部门用户列表
 	ApiDepartmentUserList = "https://open.feishu.cn/open-apis/contact/v1/department/user/list"
+	//获取部门用户列表v2
+	ApiDepartmentUserListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/user/list"
 	//获取用户详情
 	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
+	//获取用户详情v2
+	ApiDepartmentUserDetailListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/user/detail/list"
+
 	//批量获取用户信息
 	ApiUserBatchGet = "https://open.feishu.cn/open-apis/contact/v1/user/batch_get"
 	//批量获取用户信息v2
@@ -76,7 +87,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "03050a75e8a7914bd43bf7d705025c4ff53bce6f"
+	TestTicket    = "2b47615321596b93edac6837d4e7000c46082138"
 )
 
 const (
