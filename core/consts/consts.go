@@ -30,6 +30,9 @@ const (
 
 	//获取部门详情
 	ApiDepartmentInfoGet = "https://open.feishu.cn/open-apis/contact/v1/department/info/get"
+	//批量获取部门详情
+	ApiDepartmentInfoBatchGet = "https://open.feishu.cn/open-apis/contact/v2/department/detail/batch_get"
+
 	//获取部门用户列表
 	ApiDepartmentUserList = "https://open.feishu.cn/open-apis/contact/v1/department/user/list"
 	//获取部门用户列表v2
@@ -87,7 +90,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "2b47615321596b93edac6837d4e7000c46082138"
+	TestTicket    = "87c081216cb4d15a54a4f7fda2a43de05a420221"
 )
 
 const (

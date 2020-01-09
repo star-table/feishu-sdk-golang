@@ -89,6 +89,28 @@ func (t Tenant) GetDepartmentInfo(departmentId string) (*vo.GetDepartmentInfoRes
 	return respVo, nil
 }
 
+//批量获取部门详情 https://bytedance.feishu.cn/docs/doccnOcR1fnxBACchoY9tlg7Amg#
+func (t Tenant) GetDepartmentInfoBatch(depIds []string) (*vo.GetDepartmentInfoBatchRespVo, error){
+	queryParams := make([]http.QueryParameter, 0)
+	if depIds != nil && len(depIds) > 0{
+		for _, id := range depIds{
+			queryParams = append(queryParams, http.QueryParameter{
+				Key: "ids",
+				Value: id,
+			})
+		}
+	}
+	respBody, err := http.GetRepetition(consts.ApiDepartmentInfoBatchGet, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil{
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentInfoBatchRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+
 //获取部门用户列表 https://open.feishu.cn/document/ukTMukTMukTM/uEzNz4SM3MjLxczM
 func (t Tenant) GetDepartmentUserList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentUserListRespVo, error){
 	queryParams := map[string]interface{}{
