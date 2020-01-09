@@ -105,6 +105,32 @@ func TestTenant_GetDepartmentUserList(t *testing.T) {
 	assert.Equal(t, resp.Code, 0)
 }
 
+func TestTenant_GetDepartmentInfoBatch(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	t.Log(e)
+
+	resp, err := tenant.GetDepartmentSimpleListV2("0", "", 100, true)
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+	t.Log(json.ToJsonIgnoreError(resp))
+
+
+	deps := make([]string, 0)
+	for _, dep := range resp.Data.DepartmentInfos{
+		deps = append(deps, dep.Id)
+	}
+	resp1, err := tenant.GetDepartmentInfoBatch(deps)
+	log.Info(json.ToJsonIgnoreError(resp1), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp1.Code, 0)
+	t.Log(json.ToJsonIgnoreError(resp1))
+
+}
+
 func TestTenant_GetDepartmentUserV2List(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)

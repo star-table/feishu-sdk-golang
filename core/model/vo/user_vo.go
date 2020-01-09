@@ -98,6 +98,29 @@ type GetDepartmentInfoRespVo struct {
 	Data *GetDepartmentInfoRespVoData `json:"data"`
 }
 
+type GetDepartmentInfoBatchRespVo struct {
+	CommonVo
+	Data GetDepartmentInfoBatchRespData `json:"data"`
+}
+
+type GetDepartmentInfoBatchRespData struct {
+	Departments []DepartmentDetailInfo `json:"departments"`
+	Errors []GetUserBatchError `json:"errors"`
+}
+
+type DepartmentDetailInfo struct {
+	ChatId string `json:"chat_id"`
+	HasChild bool `json:"has_child"`
+	Id string `json:"id"`
+	Leader Leader `json:"leader"`
+	MemberCount int `json:"member_count"`
+	Name string `json:"name"`
+	ParentId string `json:"parent_id"`
+	Status int `json:"status"`
+}
+
+
+
 type GetDepartmentInfoRespVoData struct {
 	DepartmentInfo *DepartmentDetailInfoVo `json:"department_info"`
 }
