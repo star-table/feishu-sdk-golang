@@ -79,11 +79,19 @@ const (
 	//删除访问空值
 	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
 
-	//搜索用户
+	//搜索用户F
 	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
 
 	//检验应用管理员
 	ApiIsUserAdmin = "https://open.feishu.cn/open-apis/application/v3/is_user_admin"
+
+	////////用户群组
+	//获取用户所在的群列表
+	ApiUserGroupLIst = "https://open.feishu.cn/open-apis/user/v4/group_list"
+	//获取群成员列表
+	ApiChatMembers = "https://open.feishu.cn/open-apis/chat/v4/members"
+	//搜索用户所在的群列表
+	ApiChatSearch = "https://open.feishu.cn/open-apis/chat/v4/search"
 )
 
 //Other Const
