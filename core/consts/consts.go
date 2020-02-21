@@ -92,6 +92,22 @@ const (
 	ApiChatMembers = "https://open.feishu.cn/open-apis/chat/v4/members"
 	//搜索用户所在的群列表
 	ApiChatSearch = "https://open.feishu.cn/open-apis/chat/v4/search"
+
+	////////群信息和群管理
+	//创建群
+	ApiCreateChat = "https://open.feishu.cn/open-apis/chat/v4/create/"
+	//获取群列表
+	ApiChatList = "https://open.feishu.cn/open-apis/chat/v4/list"
+	//获取群信息
+	ApiChatInfo = "https://open.feishu.cn/open-apis/chat/v4/info"
+	//更新群信息
+	ApiUpdateChat = "https://open.feishu.cn/open-apis/chat/v4/update/"
+	//拉用户进群
+	ApiAddChatUser = "https://open.feishu.cn/open-apis/chat/v4/chatter/add/"
+	//移除用户出群
+	ApiRemoveChatUser = "https://open.feishu.cn/open-apis/chat/v4/chatter/delete/"
+	//解散群
+	ApiDisbandChat = "https://open.feishu.cn/open-apis/chat/v4/disband"
 )
 
 //Other Const

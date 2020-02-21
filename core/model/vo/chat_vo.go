@@ -2,10 +2,10 @@ package vo
 
 type GroupListRespVo struct {
 	CommonVo
-	Data *UserGroupListDat `json:"data"`
+	Data *UserGroupListData `json:"data"`
 }
 
-type UserGroupListDat struct {
+type UserGroupListData struct {
 	HasMore   bool        `json:"has_more"`
 	PageToken string      `json:"page_token"`
 	Groups    []GroupData `json:"groups"`
