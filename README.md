@@ -60,6 +60,14 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [ ] 发送群名片
   - [ ] 消息撤回
   - [x] 发送卡片通知
+  - [x] 群信息和群管理
+    - [x] 创建群
+    - [x] 获取群列表
+    - [x] 获取群信息
+    - [x] 更新群信息
+    - [x] 拉用户进群
+    - [x] 移除用户出群
+    - [x] 解散群
 - [x] 日历
   - [x] 获取日历
   - [x] 获取日历列表
