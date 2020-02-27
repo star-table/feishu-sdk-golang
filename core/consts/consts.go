@@ -16,6 +16,8 @@ const (
 	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
 	//code2session
 	ApiTokenLoginValidate = "https://open.feishu.cn/open-apis/mina/v2/tokenLoginValidate"
+	//刷新access_token
+	ApiRefreshAccessToken = "https://open.feishu.cn/open-apis/authen/v1/refresh_access_token"
 
 	//////////////////部门和用户
 	//获取通讯录授权范围
@@ -108,13 +110,15 @@ const (
 	ApiRemoveChatUser = "https://open.feishu.cn/open-apis/chat/v4/chatter/delete/"
 	//解散群
 	ApiDisbandChat = "https://open.feishu.cn/open-apis/chat/v4/disband"
+	//拉机器人进群
+	ApiAddBot = "https://open.feishu.cn/open-apis/bot/v4/add"
 )
 
 //Other Const
 const (
-	TestAppId     = "cli_9d5e49aae9ae9101"
-	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "87c081216cb4d15a54a4f7fda2a43de05a420221"
+	TestAppId     = "cli_9d40f5bf08f95108"
+	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
+	TestTicket    = "d5bf67e890ffd9f3d59cb20fdf9b4c84f6c89704"
 )
 
 const (

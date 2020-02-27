@@ -107,3 +107,16 @@ func (t Tenant) DisbandChat(msg vo.UpdateChatData) (*vo.CommonVo, error) {
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//拉机器人进群 https://open.feishu.cn/document/ukTMukTMukTM/uYDO04iN4QjL2gDN
+func (t Tenant) AddBot(msg vo.UpdateChatData) (*vo.CommonVo, error) {
+	reqBody := json.ToJsonIgnoreError(msg)
+	respBody, err := http.Post(consts.ApiAddBot, nil, reqBody, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.CommonVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

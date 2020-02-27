@@ -20,8 +20,8 @@ func TestTenant_CreateChat(t *testing.T) {
 		Name:        "test",
 		Description: "hhhh",
 		OpenIds: []string{
-			"ou_e1b43c426e884c586d52751853896688",
-			"ou_22f5529e4a1bc5c3a1271ca609b24ed5",
+			"ou_433f2b1abf3e0ec316fd9e60d4cda654",
+			"ou_87f1b2210acad10a90cc3690802626d7",
 		},
 	})
 	log.Info(json.ToJsonIgnoreError(resp), err)
@@ -49,7 +49,7 @@ func TestTenant_ChatInfo(t *testing.T) {
 	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
 	t.Log(e)
 
-	resp, err := tenant.ChatInfo("")
+	resp, err := tenant.ChatInfo("oc_95f13644b4182501420139ccee26c989")
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
@@ -108,6 +108,19 @@ func TestTenant_DisbandChat(t *testing.T) {
 	t.Log(e)
 
 	resp, err := tenant.DisbandChat(vo.UpdateChatData{ChatId: ""})
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
+func TestTenant_AddBot(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	t.Log(e)
+
+	resp, err := tenant.AddBot(vo.UpdateChatData{ChatId: "oc_95f13644b4182501420139ccee26c989"})
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)

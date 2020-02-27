@@ -50,3 +50,7 @@ func TestTokenLoginValidate(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
 }
+
+func TestRefreshUserAccessToken(t *testing.T) {
+	t.Log(RefreshUserAccessToken(consts.TestAppId, consts.TestAppSecret, consts.TestTicket, "aaaaa"))
+}

@@ -12,6 +12,7 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
 - [ ] 身份验证
   - [ ] 请求身份验证
   - [x] 获取登录用户身份
+  - [x] 刷新access_token
   - [x] 获取用户信息
 - [ ] 通讯录
   - [ ] 获取通讯录授权范围
@@ -68,6 +69,8 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
     - [x] 拉用户进群
     - [x] 移除用户出群
     - [x] 解散群
+  - [x] 机器人信息与管理
+    - [x] 拉机器人进群
 - [x] 日历
   - [x] 获取日历
   - [x] 获取日历列表
