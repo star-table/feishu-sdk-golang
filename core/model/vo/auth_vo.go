@@ -81,7 +81,7 @@ type RefreshAccessTokenRespData struct {
 	EnName           string `json:"en_name"`
 	OpenId           string `json:"open_id"`
 	TenantKey        string `json:"tenant_key"`
-	RefreshExpiresIn string `json:"refresh_expires_in"`
+	RefreshExpiresIn int64  `json:"refresh_expires_in"`
 	RefreshToken     string `json:"refresh_token"`
 	TokenType        string `json:"token_type"`
 }
