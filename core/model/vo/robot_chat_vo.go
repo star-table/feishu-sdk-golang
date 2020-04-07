@@ -43,10 +43,10 @@ type ChatMemberData struct {
 
 type UpdateChatReqVo struct {
 	ChatId      string            `json:"chat_id"`
-	OwnerUserId string            `json:"owner_user_id"`
-	OwnerOpenId string            `json:"owner_open_id"`
-	Name        string            `json:"name"`
-	I18nNames   map[string]string `json:"i18n_names"`
+	OwnerUserId string            `json:"owner_user_id,omitempty"`
+	OwnerOpenId string            `json:"owner_open_id,omitempty"`
+	Name        string            `json:"name,omitempty"`
+	I18nNames   map[string]string `json:"i18n_names,omitempty"`
 }
 
 type UpdateChatRespVo struct {
