@@ -15,7 +15,7 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [x] 刷新access_token
   - [x] 获取用户信息
 - [ ] 通讯录
-  - [ ] 获取通讯录授权范围
+  - [x] 获取通讯录授权范围
   - [x] 获取子部门列表
   - [ ] 获取子部门 ID 列表
   - [x] 获取部门详情
