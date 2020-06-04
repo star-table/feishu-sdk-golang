@@ -38,6 +38,8 @@ type OAuth2AccessTokenRespVo struct {
 	TenantKey    string `json:"tenant_key"`
 	RefreshToken string `json:"refresh_token"`
 	TokenType    string `json:"token_type"`
+	Code         int    `json:"code"`
+	Message      string `json:"message"`
 }
 
 type OAuth2UserInfoRespVo struct {

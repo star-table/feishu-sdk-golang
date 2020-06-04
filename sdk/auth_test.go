@@ -2,6 +2,7 @@ package sdk
 
 import (
 	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
+	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 	"gotest.tools/assert"
@@ -53,4 +54,15 @@ func TestTokenLoginValidate(t *testing.T) {
 
 func TestRefreshUserAccessToken(t *testing.T) {
 	t.Log(RefreshUserAccessToken(consts.TestAppId, consts.TestAppSecret, consts.TestTicket, "aaaaa"))
+}
+
+func TestGetOauth2AccessToken(t *testing.T) {
+	t.Log(GetOauth2AccessToken(vo.OAuth2AccessTokenReqVo{
+		AppId:     consts.TestAppId,
+		AppSecret: consts.TestAppSecret,
+		//AppAccessToken: "a-4d0bea08bf46580b9cc9bf8edc0f5736fdfa7673",
+		GrantType: "authorization_code",
+		Code:      "Ea3OYm95NV8Qn4IB2HxF5g",
+	}))
+
 }

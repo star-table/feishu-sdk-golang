@@ -118,7 +118,7 @@ const (
 const (
 	TestAppId     = "cli_9d40f5bf08f95108"
 	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket    = "d5bf67e890ffd9f3d59cb20fdf9b4c84f6c89704"
+	TestTicket    = "dd2c594788eea802224d1ecdf0dc7a710062fefd"
 )
 
 const (
