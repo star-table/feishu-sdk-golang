@@ -127,6 +127,7 @@ type CardElementImageModule struct {
 
 type CardElementActionModule struct {
 	Tag     string        `json:"tag"`
+	Layout  string        `json:"layout"`
 	Actions []interface{} `json:"actions"`
 }
 
