@@ -112,13 +112,19 @@ const (
 	ApiDisbandChat = "https://open.feishu.cn/open-apis/chat/v4/disband"
 	//拉机器人进群
 	ApiAddBot = "https://open.feishu.cn/open-apis/bot/v4/add"
+
+	/////////订单
+	//查询用户是否在应用开通范围
+	ApiCheckUser    = "https://open.feishu.cn/open-apis/pay/v1/paid_scope/check_user"
+	ApiGetOrderList = "https://open.feishu.cn/open-apis/pay/v1/order/list"
+	ApiGetOrderInfo = "https://open.feishu.cn/open-apis/pay/v1/order/get"
 )
 
 //Other Const
 const (
-	TestAppId     = "cli_9d40f5bf08f95108"
-	TestAppSecret = "Apx5vdWeIxVzDBQ6ARte6grZgOCgbhgP"
-	TestTicket    = "dd2c594788eea802224d1ecdf0dc7a710062fefd"
+	TestAppId     = "cli_9d5e49aae9ae9101"
+	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
+	TestTicket    = "eb294740d3170987ada21a17287d8b8f680ca8b9"
 )
 
 const (
