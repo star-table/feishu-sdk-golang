@@ -6,6 +6,7 @@ import (
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
+	"net/url"
 )
 
 //获取用户所在的群列表 https://open.feishu.cn/document/ukTMukTMukTM/uQzMwUjL0MDM14CNzATN
@@ -51,7 +52,7 @@ func (t Tenant) ChatMembers(userAccessToken string, chatId string, pageSize int,
 //搜索用户所在的群列表 https://open.feishu.cn/document/ukTMukTMukTM/uUTOyUjL1kjM14SN5ITN
 func (t Tenant) ChatSearch(userAccessToken string, query string, pageSize int, pageToken string) (*vo.GroupListRespVo, error) {
 	queryParams := map[string]interface{}{
-		"query": query,
+		"query": url.QueryEscape(query),
 	}
 	if pageSize > 0 {
 		queryParams["page_size"] = pageSize
