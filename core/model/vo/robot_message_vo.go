@@ -1,5 +1,7 @@
 package vo
 
+import "encoding/binary"
+
 //定义参照: https://open.feishu.cn/open-apis/message/v4/send/
 type MsgVo struct {
 	OpenId      string `json:"open_id,omitempty"`
@@ -81,7 +83,7 @@ type Card struct {
 	CardLink     *CardElementUrl `json:"card_link,omitempty"`
 	Header       *CardHeader     `json:"header,omitempty"`
 	Elements     []interface{}   `json:"elements"`
-	I18nElements *I18nElement    `json:"i18n_elements"`
+	I18nElements *I18nElement    `json:"i18n_elements,omitempty"`
 }
 
 type CardConfig struct {
@@ -122,7 +124,14 @@ type CardElementImageModule struct {
 
 	ImgKey string           `json:"img_key"`
 	Alt    CardElementText  `json:"alt"`
-	Title  *CardElementText `json:"alt,omitempty"`
+	Title  *CardElementText `json:"title,omitempty"`
+}
+
+type CardElementTextAlt struct {
+	Tag     string                    `json:"tag"`
+	Content string                    `json:"content"`
+	Lines   int                       `json:"lines,omitempty"`
+	Href    map[string]CardElementUrl `json:"href,omitempty"`
 }
 
 type CardElementActionModule struct {
@@ -218,4 +227,8 @@ type CardElementOption struct {
 	Value    string           `json:"value"`
 	Url      string           `json:"url,omitempty"`
 	MultiUrl *CardElementUrl  `json:"multi_url,omitempty"`
+}
+
+type UpdateImageVo struct {
+	Image binary.ByteOrder
 }
