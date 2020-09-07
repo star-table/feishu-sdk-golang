@@ -118,13 +118,19 @@ const (
 	ApiCheckUser    = "https://open.feishu.cn/open-apis/pay/v1/paid_scope/check_user"
 	ApiGetOrderList = "https://open.feishu.cn/open-apis/pay/v1/order/list"
 	ApiGetOrderInfo = "https://open.feishu.cn/open-apis/pay/v1/order/get"
+
+	////////云文档
+	//查询文档
+	ApiSearchDocs = "https://open.feishu.cn/open-apis/suite/docs-api/search/object"
+	//获取云文档信息
+	ApiGetDocMeta = "https://open.feishu.cn/open-apis/doc/v2/meta"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "e03716ea22bd01d6be12a367551151cfa71ef993"
+	TestTicket    = "ef099aa2a2a78cb52f46fd619bb93aa0f95bf2af"
 )
 
 const (
