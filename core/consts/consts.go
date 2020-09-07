@@ -130,7 +130,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "ef099aa2a2a78cb52f46fd619bb93aa0f95bf2af"
+	TestTicket    = "23f2f99a3f696ff09a1d0a9bd0ff723fb916469d"
 )
 
 const (

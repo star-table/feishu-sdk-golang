@@ -6,7 +6,7 @@ type SearchDocsReqVo struct {
 	Offset    *int      `json:"offset"`
 	OwnerIds  *[]string `json:"owner_ids"`
 	ChatIds   *[]string `json:"chat_ids"`
-	DocsTypes *string   `json:"docs_types"`
+	DocsTypes *[]string `json:"docs_types"`
 }
 
 type SearchDocsRespVo struct {

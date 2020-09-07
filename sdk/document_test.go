@@ -15,13 +15,13 @@ func TestTenant_SearchDocs(t *testing.T) {
 	t.Log(json.ToJsonIgnoreError(app))
 	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
 	t.Log(e)
-	resp, err := tenant.SearchDocs("u-b2pimsbPjM7n6Q68L2quma", vo.SearchDocsReqVo{
+	resp, err := tenant.SearchDocs("u-hI3nBp3z78M1UNP9WD5ASa", vo.SearchDocsReqVo{
 		SearchKey: nil,
 		Count:     nil,
 		Offset:    nil,
 		OwnerIds:  nil,
 		ChatIds:   nil,
-		DocsTypes: nil,
+		DocsTypes: &[]string{"doc", "file"},
 	})
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
