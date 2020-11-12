@@ -70,60 +70,97 @@ func TestTenant_SendMessage(t *testing.T) {
 func TestNewFileUploadRequest(t *testing.T) {
 	data := make(map[string]string)
 	t.Log(NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/",
-		data, "image", "C:\\Users\\admin\\Desktop\\物料宣传.jpg"))
+		data, "image", "C:\\Users\\admin\\Desktop\\11111.png"))
 }
 
 func TestTenant_SendMessage_Card(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2e499c21bf8f1658")
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
 	t.Log(e)
 
 	resp, err := tenant.SendMessage(vo.MsgVo{
-		OpenId:  "ou_34afd0445a227c382e54e756842f834e",
+		OpenId: "ou_0e40d4035ceb951467beb62bb1f3e5ba", //陈
+		//OpenId:  "ou_dcff2de6a28060eff9f0d9665d2d28be",//我
 		MsgType: "interactive",
 		Card: &vo.Card{
 			Config: &vo.CardConfig{
-				WideScreenMode: false,
+				WideScreenMode: true,
 			},
 			Header: &vo.CardHeader{
 				Title: &vo.CardHeaderTitle{
 					Tag:     "plain_text",
-					Content: "「北极星协作」近期更新汇总 ",
+					Content: "新功能「自定义字段」上线了",
 				},
 			},
 			Elements: []interface{}{
-				vo.CardElementImageModule{
-					Tag: "img",
-					Alt: vo.CardElementText{
-						Tag:     "lark_md",
-						Content: "北极星协作",
+				vo.CardElementContentModule{
+					Tag: "div",
+					Text: &vo.CardElementText{
+						Tag:     "plain_text",
+						Content: "任务需要设置预算？需要评分？需要审批？",
 					},
-					ImgKey: "img_5bb79fbc-12f6-4a67-a4f9-dee33e5bd3fg",
 				},
 				vo.CardElementContentModule{
 					Tag: "div",
 					Text: &vo.CardElementText{
 						Tag:     "plain_text",
-						Content: "1. 小程序：大幅优化了性能和体验\n2. 工作台改版：方便快速定位到近期截止且与我相关的任务\n3. 新增任务筛选器：组织内与我相关的所有任务一目了然\n4. 新增任务表格视图：更直观的查看任务信息，支持批量操作任务\n5. 新增敏捷研发项目：需求的分解 –> 任务的推进 –> QA缺陷的修复，迭代规划，高效推动产品的Scrum敏捷研发",
+						Content: "快来体验自定义字段吧，可根据具体场景设置自定义字段。\n你想要的业务场景，都能配置出来啦！",
 					},
 				},
-
+				vo.CardElementImageModule{
+					Tag: "img",
+					Alt: vo.CardElementText{
+						Tag:     "lark_md",
+						Content: "自定义字段",
+					},
+					ImgKey: "img_0d4e7bde-7749-4260-9bf3-c629789c5b7g",
+				},
 				vo.CardElementActionModule{
 					Tag: "action",
+
 					Actions: []interface{}{
 						vo.ActionButton{
 							Tag: "button",
 							Text: vo.CardElementText{
 								Tag:     "plain_text",
-								Content: "查看更多",
+								Content: "立即体验",
 							},
-							Url:  "https://polaris.feishu.cn/docs/doccn5PXJnUDDhLee2Uksn337mb#0v0O1m",
+							//Url:  "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
+							MultiUrl: &vo.CardElementUrl{
+								Url:        "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
+								AndroidUrl: "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
+								IosUrl:     "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
+								PcUrl:      "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=appCenter",
+							},
+							Type: "primary",
+						},
+						vo.ActionButton{
+							Tag: "button",
+							Text: vo.CardElementText{
+								Tag:     "plain_text",
+								Content: "查看详情",
+							},
+							Url:  "https://polaris.feishu.cn/docs/doccnqMPHK6Dh4yE0gSvJqj2tSf#",
 							Type: "default",
 						},
 					},
 				},
+				//vo.CardElementActionModule{
+				//	Tag: "action",
+				//	Actions: []interface{}{
+				//		vo.ActionButton{
+				//			Tag: "button",
+				//			Text: vo.CardElementText{
+				//				Tag:     "plain_text",
+				//				Content: "查看详情",
+				//			},
+				//			Url:  "https://polaris.feishu.cn/docs/doccnqMPHK6Dh4yE0gSvJqj2tSf#",
+				//			Type: "default",
+				//		},
+				//	},
+				//},
 			},
 		},
 	})

@@ -17,3 +17,15 @@ func TestTenant_IsUserAdmin(t *testing.T) {
 	t.Log(err)
 	t.Log(json.ToJsonIgnoreError(resp))
 }
+
+func TestTenant_AdminUserList(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	t.Log(e)
+
+	resp, err := tenant.AdminUserList()
+	t.Log(err)
+	t.Log(json.ToJsonIgnoreError(resp))
+}

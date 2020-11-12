@@ -86,6 +86,8 @@ const (
 
 	//检验应用管理员
 	ApiIsUserAdmin = "https://open.feishu.cn/open-apis/application/v3/is_user_admin"
+	//查询应用管理员列表
+	ApiAdminUserList = "https://open.feishu.cn/open-apis/user/v4/app_admin_user/list"
 
 	////////用户群组
 	//获取用户所在的群列表
@@ -130,7 +132,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "23f2f99a3f696ff09a1d0a9bd0ff723fb916469d"
+	TestTicket    = "9e8068262c350a0132c0a6136dbf2b1fbc9db1d6"
 )
 
 const (

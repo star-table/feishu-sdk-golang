@@ -34,7 +34,7 @@ func NewFileUploadRequest(uri string, params map[string]string, paramName, path 
 	}
 	request, err := http.NewRequest("POST", uri, body)
 	request.Header.Set("Content-Type", writer.FormDataContentType())
-	request.Header.Set("Authorization", "Bearer t-0476c29d27f63fa39535f9f268acec043b849ab6")
+	request.Header.Set("Authorization", "Bearer t-8953805432bb19f79deab50f435d828741d7a19d")
 	client := http.Client{}
 	resp, err := client.Do(request)
 	if err != nil {
