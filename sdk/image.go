@@ -54,7 +54,7 @@ func (t Tenant) NewFileUploadRequest(uri string, params map[string]string, param
 }
 
 //func (t Tenant) GetImage(imageKey string) ([]byte, error) {
-func (t Tenant) GetImage(imageKey string, isApp bool) ([]byte, error) {
+func (t Tenant) GetImage(imageKey string, isApp bool) (io.ReadCloser, error) {
 	queryParams := map[string]interface{}{}
 	queryParams["image_key"] = imageKey
 	if isApp {
@@ -73,11 +73,11 @@ func (t Tenant) GetImage(imageKey string, isApp bool) ([]byte, error) {
 		return nil, err
 	}
 
-	respBytes, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Error(err)
-		return nil, err
-	}
+	//respBytes, err := ioutil.ReadAll(resp.Body)
+	//if err != nil {
+	//	log.Error(err)
+	//	return nil, err
+	//}
 
-	return respBytes, nil
+	return resp.Body, nil
 }

@@ -67,11 +67,11 @@ func TestTenant_SendMessage(t *testing.T) {
 	assert.Equal(t, resp.Code, 0)
 }
 
-func TestNewFileUploadRequest(t *testing.T) {
-	data := make(map[string]string)
-	t.Log(NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/",
-		data, "image", "C:\\Users\\admin\\Desktop\\11111.png"))
-}
+//func TestNewFileUploadRequest(t *testing.T) {
+//	data := make(map[string]string)
+//	t.Log(NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/",
+//		data, "image", "C:\\Users\\admin\\Desktop\\11111.png"))
+//}
 
 func TestTenant_SendMessage_Card(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
