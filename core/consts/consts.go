@@ -126,13 +126,15 @@ const (
 	ApiSearchDocs = "https://open.feishu.cn/open-apis/suite/docs-api/search/object"
 	//获取云文档信息
 	ApiGetDocMeta = "https://open.feishu.cn/open-apis/doc/v2/meta"
+	//获取图片
+	ApiGetImage = "https://open.feishu.cn/open-apis/image/v4/get"
 )
 
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "9e8068262c350a0132c0a6136dbf2b1fbc9db1d6"
+	TestTicket    = "cfcec641a9545dffd9c6c1fc0c96d87c0603be0d"
 )
 
 const (

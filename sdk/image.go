@@ -3,6 +3,9 @@ package sdk
 import (
 	"bytes"
 	"fmt"
+	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
+	http2 "github.com/galaxy-book/feishu-sdk-golang/core/util/http"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 	"io"
 	"io/ioutil"
 	"mime/multipart"
@@ -11,7 +14,7 @@ import (
 	"unsafe"
 )
 
-func NewFileUploadRequest(uri string, params map[string]string, paramName, path string) error {
+func (t Tenant) NewFileUploadRequest(uri string, params map[string]string, paramName, path string) error {
 	file, err := os.Open(path)
 	if err != nil {
 		return err
@@ -34,7 +37,7 @@ func NewFileUploadRequest(uri string, params map[string]string, paramName, path 
 	}
 	request, err := http.NewRequest("POST", uri, body)
 	request.Header.Set("Content-Type", writer.FormDataContentType())
-	request.Header.Set("Authorization", "Bearer t-8953805432bb19f79deab50f435d828741d7a19d")
+	request.Header.Set("Authorization", "Bearer "+t.TenantAccessToken)
 	client := http.Client{}
 	resp, err := client.Do(request)
 	if err != nil {
@@ -48,4 +51,33 @@ func NewFileUploadRequest(uri string, params map[string]string, paramName, path 
 	str := (*string)(unsafe.Pointer(&respBytes))
 	fmt.Println(*str)
 	return err
+}
+
+//func (t Tenant) GetImage(imageKey string) ([]byte, error) {
+func (t Tenant) GetImage(imageKey string, isApp bool) (io.ReadCloser, error) {
+	queryParams := map[string]interface{}{}
+	queryParams["image_key"] = imageKey
+	if isApp {
+		queryParams["operator"] = "app"
+	}
+	request, err := http.NewRequest("GET", consts.ApiGetImage+http2.ConvertToQueryParams(queryParams), nil)
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	request.Header.Set("Authorization", "Bearer "+t.TenantAccessToken)
+	client := http.Client{}
+	resp, err := client.Do(request)
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	//respBytes, err := ioutil.ReadAll(resp.Body)
+	//if err != nil {
+	//	log.Error(err)
+	//	return nil, err
+	//}
+
+	return resp.Body, nil
 }
