@@ -92,6 +92,7 @@ type CardConfig struct {
 
 type CardHeader struct {
 	Title *CardHeaderTitle `json:"title,omitempty"`
+	Template string `json:"template"`
 }
 
 type CardHeaderTitle struct {
