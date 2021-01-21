@@ -232,3 +232,8 @@ type CardElementOption struct {
 type UpdateImageVo struct {
 	Image binary.ByteOrder
 }
+
+type CardElementNote struct {
+	Tag      string        `json:"tag"`
+	Elements []interface{} `json:"elements"`
+}

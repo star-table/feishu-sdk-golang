@@ -77,12 +77,14 @@ func TestTenant_SendMessage_Card(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	//tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "2eb972ddc1cf1652") //测试企业二
 	t.Log(e)
 
 	resp, err := tenant.SendMessage(vo.MsgVo{
-		OpenId: "ou_0e40d4035ceb951467beb62bb1f3e5ba", //陈
+		//OpenId: "ou_0e40d4035ceb951467beb62bb1f3e5ba", //陈
 		//OpenId:  "ou_dcff2de6a28060eff9f0d9665d2d28be",//我
+		OpenId:  "ou_44fbc016f49fa848a6182e4ff3c48780", //我 测试企业二
 		MsgType: "interactive",
 		Card: &vo.Card{
 			Config: &vo.CardConfig{
@@ -91,7 +93,7 @@ func TestTenant_SendMessage_Card(t *testing.T) {
 			Header: &vo.CardHeader{
 				Title: &vo.CardHeaderTitle{
 					Tag:     "plain_text",
-					Content: "新功能「自定义字段」上线了",
+					Content: "测试任务",
 				},
 			},
 			Elements: []interface{}{
@@ -99,68 +101,47 @@ func TestTenant_SendMessage_Card(t *testing.T) {
 					Tag: "div",
 					Text: &vo.CardElementText{
 						Tag:     "plain_text",
-						Content: "任务需要设置预算？需要评分？需要审批？",
+						Content: "任务标题",
 					},
 				},
 				vo.CardElementContentModule{
 					Tag: "div",
 					Text: &vo.CardElementText{
 						Tag:     "plain_text",
-						Content: "快来体验自定义字段吧，可根据具体场景设置自定义字段。\n你想要的业务场景，都能配置出来啦！",
+						Content: "负责人：aabc",
 					},
 				},
-				vo.CardElementImageModule{
-					Tag: "img",
-					Alt: vo.CardElementText{
-						Tag:     "lark_md",
-						Content: "自定义字段",
+				vo.CardElementNote{
+					Tag: "note",
+					Elements: []interface{}{
+						vo.CardElementTextAlt{
+							Tag:     "plain_text",
+							Content: "开始时间:无        ",
+						},
+						vo.CardElementTextAlt{
+							Tag:     "plain_text",
+							Content: "截止时间:1990年12月12日     ",
+						},
+						vo.CardElementTextAlt{
+							Tag:     "plain_text",
+							Content: "原截止时间:1990年12月12日",
+						},
 					},
-					ImgKey: "img_0d4e7bde-7749-4260-9bf3-c629789c5b7g",
 				},
 				vo.CardElementActionModule{
 					Tag: "action",
-
 					Actions: []interface{}{
 						vo.ActionButton{
 							Tag: "button",
 							Text: vo.CardElementText{
 								Tag:     "plain_text",
-								Content: "立即体验",
+								Content: "任务详情",
 							},
-							//Url:  "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
-							MultiUrl: &vo.CardElementUrl{
-								Url:        "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
-								AndroidUrl: "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
-								IosUrl:     "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=sidebar-semi",
-								PcUrl:      "https://applink.feishu.cn/client/mini_program/open?appId=cli_9d5e49aae9ae9101&mode=appCenter",
-							},
-							Type: "primary",
-						},
-						vo.ActionButton{
-							Tag: "button",
-							Text: vo.CardElementText{
-								Tag:     "plain_text",
-								Content: "查看详情",
-							},
-							Url:  "https://polaris.feishu.cn/docs/doccnqMPHK6Dh4yE0gSvJqj2tSf#",
+							Url:  "https://polaris.feishu.cn/docs/doccnldXu2b7ei0pmHbViQXXSGg",
 							Type: "default",
 						},
 					},
 				},
-				//vo.CardElementActionModule{
-				//	Tag: "action",
-				//	Actions: []interface{}{
-				//		vo.ActionButton{
-				//			Tag: "button",
-				//			Text: vo.CardElementText{
-				//				Tag:     "plain_text",
-				//				Content: "查看详情",
-				//			},
-				//			Url:  "https://polaris.feishu.cn/docs/doccnqMPHK6Dh4yE0gSvJqj2tSf#",
-				//			Type: "default",
-				//		},
-				//	},
-				//},
 			},
 		},
 	})

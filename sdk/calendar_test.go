@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-var calendarId = "feishu.cn_lNRyD5571uIiNGqLl1KZwe@group.calendar.feishu.cn"
+var calendarId = "feishu.cn_C13Hr0LgGiqNAJRak53Kea@group.calendar.feishu.cn"
 var calendarEventId = "9e1e3aed-3fa9-486c-99bf-4b42ffdbe384"
 
 func TestTenant_GetCalendar(t *testing.T) {
@@ -50,13 +50,14 @@ func TestTenant_UpdateCalendar(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "2c0c7abea54f9758")
 	t.Log(e)
 
 	resp, err := tenant.UpdateCalendar(calendarId, vo.UpdateCalendarReq{
-		Summary:           "日历就是日历",
-		Description:       "测试使用哈",
-		DefaultAccessRole: "free_busy_reader",
+		Summary:     "日历就是日历",
+		Description: "测试使用哈",
+		//DefaultAccessRole: "free_busy_reader",
+		IsPrivate: true,
 	})
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
@@ -171,7 +172,7 @@ func TestTenant_GetCalendarAttendeesAcl(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "2c0c7abea54f9758")
 	t.Log(e)
 
 	resp, err := tenant.GetCalendarAttendeesAcl(calendarId)

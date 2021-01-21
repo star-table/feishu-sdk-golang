@@ -21,14 +21,14 @@ func TestTenant_NewFileUploadRequest(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "2c29657237ce175d")
 	t.Log(e)
 
 	//t.Log(NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/",
 	//		data, "image", "C:\\Users\\admin\\Desktop\\11111.png"))
 
 	data := make(map[string]string)
-	resp := tenant.NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/", data, "image", "C:\\Users\\admin\\Desktop\\1.gif")
+	resp := tenant.NewFileUploadRequest("https://open.feishu.cn/open-apis/image/v4/put/", data, "image", "C:\\Users\\admin\\Desktop\\12345.png")
 	t.Log(json.ToJsonIgnoreError(resp))
 }
 
