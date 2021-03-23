@@ -128,6 +128,11 @@ const (
 	ApiGetDocMeta = "https://open.feishu.cn/open-apis/doc/v2/meta"
 	//获取图片
 	ApiGetImage = "https://open.feishu.cn/open-apis/image/v4/get"
+
+	/// 授权状态
+	// https://bytedance.feishu.cn/docs/doccnHJx2UbLZh5kiWjNawICyNd#
+	ApiGetScopes = "https://open.feishu.cn/open-apis/application/v6/scopes"
+	ApiApplyScopes = "https://open.feishu.cn/open-apis/application/v6/scopes/apply"
 )
 
 //Other Const
