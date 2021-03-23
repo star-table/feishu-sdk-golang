@@ -1,7 +1,9 @@
 ## Introduce
-FeiShu ([https://feishu.cn](https://feishu.cn)) Server Api Sdk For Go. 
+FeiShu ([https://feishu.cn](https://feishu.cn)) Server Api Sdk For Go.
+
 ## Doc
 FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN](https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN))
+
 ## Feature
 - [x] 授权
   - [x] 获取 app_access_token（企业自建应用）
@@ -9,6 +11,8 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [x] 获取 tenant_access_token（企业自建应用）
   - [x] 获取 tenant_access_token（应用商店应用）
   - [x] 重新推送 app_ticket
+  - [x] [查询租户授权状态](https://bytedance.feishu.cn/docs/doccnHJx2UbLZh5kiWjNawICyNd#dCNL6V)
+  - [x] [申请授权](https://bytedance.feishu.cn/docs/doccnHJx2UbLZh5kiWjNawICyNd#kHHiAa)
 - [ ] 身份验证
   - [ ] 请求身份验证
   - [x] 获取登录用户身份
@@ -84,4 +88,5 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [x] 更新日程
   - [x] 邀请/移除日程参与者
 
-  
+## 参考
+* 飞书官方文档 https://open.feishu.cn/document/uQjL04CN/ucDOz4yN4MjL3gzM
