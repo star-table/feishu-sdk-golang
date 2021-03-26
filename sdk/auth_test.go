@@ -66,3 +66,7 @@ func TestGetOauth2AccessToken(t *testing.T) {
 	}))
 
 }
+
+func TestGetOAuth2UserInfo(t *testing.T) {
+	t.Log(GetOAuth2UserInfo("u-NW4WTqNQXFH2DIRXjNvlBc"))
+}
