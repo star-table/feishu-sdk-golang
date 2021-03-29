@@ -22,7 +22,7 @@ func (t Tenant) GetScopes() (*vo.GetScopesResp, error){
 
 // 申请授权 https://bytedance.feishu.cn/docs/doccnHJx2UbLZh5kiWjNawICyNd#kHHiAa
 func (t Tenant) ApplyScopes() (*vo.ApplyScopesResp, error){
-	respBody, err := http.Get(consts.ApiApplyScopes, nil, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	respBody, err := http.Post(consts.ApiApplyScopes, nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
 	if err != nil{
 		log.Error(err)
 		return nil, err
