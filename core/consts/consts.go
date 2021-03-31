@@ -85,6 +85,15 @@ const (
 	//删除访问空值
 	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
 
+	ApiCalendarGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarDeleteV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarGetListV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars"
+	ApiCalendarUpdateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarSearchV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/search"
+	ApiCalendarUnsubscribeV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/unsubscribe"
+	ApiCalendarSubscribeV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/subscribe"
+	ApiCalendarSubscriptionV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/subscription"
+
 	//搜索用户F
 	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
 
@@ -142,8 +151,8 @@ const (
 //Other Const
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
-	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "2a33877c3294db9f73f77c2a2c71d2228ec31862"
+	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdIxxx"
+	TestTicket    = "d16c9957774d93a6e274f45f110ed6cb6bcec4efxxx"
 )
 
 const (
