@@ -89,3 +89,27 @@ func TestTenant_SearchCalendarV4(t *testing.T) {
 	}
 	t.Log(json.ToJsonIgnoreError(resp))
 }
+
+func TestTenant_SubscribeCalendarV4(t *testing.T) {
+	tenantKey := "2e99b3ab0b0f1654"
+	calendarId := "feishu.cn_Y8iPaCjvuBeG6WEdJ326qg@group.calendar.feishu.cn"
+	tenant := GetTenant(tenantKey)
+	resp, err := tenant.SubscribeCalendarV4(calendarId)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	t.Log(json.ToJsonIgnoreError(resp))
+}
+
+func TestTenant_UnsubscribeCalendarV4(t *testing.T) {
+	tenantKey := "2e99b3ab0b0f1654"
+	calendarId := "feishu.cn_Y8iPaCjvuBeG6WEdJ326qg@group.calendar.feishu.cn"
+	tenant := GetTenant(tenantKey)
+	resp, err := tenant.UnsubscribeCalendarV4(calendarId)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	t.Log(json.ToJsonIgnoreError(resp))
+}
