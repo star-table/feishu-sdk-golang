@@ -17,7 +17,7 @@ func TestUser_SearchUser(t *testing.T) {
 	t.Log(json.ToJsonIgnoreError(resp))
 }
 
-func TestSearch(t *testing.T){
+func TestSearch(t *testing.T) {
 	body, e := http.Get("https://open.feishu.cn/api/v3/app/cli_9d5e49aae9ae9101/developer/search?name=l", nil)
 	t.Log(e)
 	t.Log(body)

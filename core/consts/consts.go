@@ -66,6 +66,8 @@ const (
 	/////////////////////////////////////////////////////////
 	//创建日历
 	ApiCalendarCreate = "https://open.feishu.cn/open-apis/calendar/v3/calendars"
+	//创建日历v4版本
+	ApiCalendarCreateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars"
 	//获取日历
 	ApiCalendarGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list/%s"
 	//获取日历列表
