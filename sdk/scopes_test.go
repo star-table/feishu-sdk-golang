@@ -8,7 +8,7 @@ import (
 )
 
 func TestTenant_GetScopes(t *testing.T) {
-	tenant := GetTenant("2c0c7abea54f9758")
+	tenant := GetTenant("2e99b3ab0b0f1654")
 	resp, err := tenant.GetScopes()
 	if err != nil {
 		t.Error(err)
