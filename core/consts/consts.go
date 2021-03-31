@@ -14,6 +14,8 @@ const (
 	ApiAppTicketResend = "https://open.feishu.cn/open-apis/auth/v3/app_ticket/resend/"
 	//获取登录用户身份
 	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
+	//获取登录用户身份(通过user_access_token)
+	ApiOAuth2GetUserInfoByAccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/user_info/"
 	//code2session
 	ApiTokenLoginValidate = "https://open.feishu.cn/open-apis/mina/v2/tokenLoginValidate"
 	//刷新access_token
@@ -64,6 +66,8 @@ const (
 	/////////////////////////////////////////////////////////
 	//创建日历
 	ApiCalendarCreate = "https://open.feishu.cn/open-apis/calendar/v3/calendars"
+	//创建日历v4版本
+	ApiCalendarCreateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars"
 	//获取日历
 	ApiCalendarGet = "https://open.feishu.cn/open-apis/calendar/v3/calendar_list/%s"
 	//获取日历列表
@@ -131,7 +135,7 @@ const (
 
 	/// 授权状态
 	// https://bytedance.feishu.cn/docs/doccnHJx2UbLZh5kiWjNawICyNd#
-	ApiGetScopes = "https://open.feishu.cn/open-apis/application/v6/scopes"
+	ApiGetScopes   = "https://open.feishu.cn/open-apis/application/v6/scopes"
 	ApiApplyScopes = "https://open.feishu.cn/open-apis/application/v6/scopes/apply"
 )
 
@@ -139,7 +143,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "5c4d8a9c3676a3be7dfc81d1b529a77835bdaa3d"
+	TestTicket    = "2a33877c3294db9f73f77c2a2c71d2228ec31862"
 )
 
 const (

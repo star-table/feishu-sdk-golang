@@ -103,7 +103,7 @@ func GetOauth2AccessToken(req vo.OAuth2AccessTokenReqVo) (*vo.OAuth2AccessTokenR
 
 //获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uAjNz4CM2MjLwYzM
 func GetOAuth2UserInfo(userAccessToken string) (*vo.OAuth2UserInfoRespVo, error) {
-	respBody, err := http.Get(consts.ApiOAuth2AccessToken, nil, http.BuildTokenHeaderOptions(userAccessToken))
+	respBody, err := http.Get(consts.ApiOAuth2GetUserInfoByAccessToken, nil, http.BuildTokenHeaderOptions(userAccessToken))
 	if err != nil {
 		log.Error(err)
 		return nil, err

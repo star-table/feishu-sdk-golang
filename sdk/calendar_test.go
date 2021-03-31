@@ -34,11 +34,11 @@ func TestTenant_CreateCalendar(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "130736cdb40f9758")
 	t.Log(e)
 
 	resp, err := tenant.CreateCalendar(vo.CreateCalendarReq{
-		Summary:     "日历就是日历",
+		Summary:     "b",
 		Description: "测试使用",
 	})
 	log.Info(json.ToJsonIgnoreError(resp), err)
