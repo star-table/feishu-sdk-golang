@@ -62,7 +62,7 @@ func (t Tenant) UpdateCalendar(calendarId string, bodyParams vo.UpdateCalendarRe
 	return respVo, nil
 }
 
-//删除日程 https://open.feishu.cn/document/ukTMukTMukTM/uUTM14SNxUjL1ETN?lang=zh-CN
+//删除日历 https://open.feishu.cn/document/ukTMukTMukTM/uUTM14SNxUjL1ETN?lang=zh-CN
 func (t Tenant) DeleteCalendar(calendarId string) (*vo.CommonVo, error) {
 	respBody, err := http.Delete(fmt.Sprintf(consts.ApiCalendarUpdate, calendarId), nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
 	if err != nil {

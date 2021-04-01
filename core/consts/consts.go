@@ -85,7 +85,28 @@ const (
 	//删除访问空值
 	ApiCalendarAttendeesDelete = "https://open.feishu.cn/open-apis/calendar/v3/calendars/%s/acl/%s"
 
-	//搜索用户F
+	//创建日程v4
+	ApiCalendarEventCreateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events"
+	//删除日程v4
+	ApiCalendarEventDeleteV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s"
+	//获取日程v4
+	ApiCalendarEventGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s"
+	//获取日程列表v4
+	ApiCalendarEventBatchGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events"
+	//更新日程v4
+	ApiCalendarEventUpdateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s"
+	//搜索日程v4
+	ApiCalendarEventSearchV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/search"
+	//创建日程参与人v4
+	ApiCalendarEventAttendeesAddV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s/attendees"
+	//删除日程参与人v4
+	ApiCalendarEventAttendeesDeleteV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s/attendees/batch_delete"
+	//获取日程参与人列表v4
+	ApiCalendarEventAttendeesGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s/attendees"
+	//获取参与人群成员列表v4
+	ApiCalendarEventAttendeesChatMembersGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s/attendees/%s/chat_members"
+
+	//搜索用户
 	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
 
 	//检验应用管理员
@@ -143,7 +164,7 @@ const (
 const (
 	TestAppId     = "cli_9d5e49aae9ae9101"
 	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "2a33877c3294db9f73f77c2a2c71d2228ec31862"
+	TestTicket    = "9f6877b01b541204e86d0a9eca056eaf3d88331d"
 )
 
 const (
