@@ -106,14 +106,20 @@ const (
 	//获取参与人群成员列表v4
 	ApiCalendarEventAttendeesChatMembersGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/events/%s/attendees/%s/chat_members"
 
-	ApiCalendarGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
-	ApiCalendarDeleteV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
-	ApiCalendarGetListV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars"
-	ApiCalendarUpdateV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
-	ApiCalendarSearchV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/search"
-	ApiCalendarUnsubscribeV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/unsubscribe"
-	ApiCalendarSubscribeV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/subscribe"
+	ApiCalendarGetV4          = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarDeleteV4       = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarGetListV4      = "https://open.feishu.cn/open-apis/calendar/v4/calendars"
+	ApiCalendarUpdateV4       = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s"
+	ApiCalendarSearchV4       = "https://open.feishu.cn/open-apis/calendar/v4/calendars/search"
+	ApiCalendarUnsubscribeV4  = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/unsubscribe"
+	ApiCalendarSubscribeV4    = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/subscribe"
 	ApiCalendarSubscriptionV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/subscription"
+	//创建访问控制
+	ApiCalendarAddCalendarAclV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/acls"
+	//删除访问控制
+	ApiCalendarDeleteCalendarAclV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/acls/%s"
+	//获取访问控制列表
+	ApiCalendarCalendarAclGetV4 = "https://open.feishu.cn/open-apis/calendar/v4/calendars/%s/acls"
 
 	//搜索用户
 	ApiSearchUser = "https://open.feishu.cn/open-apis/search/v1/user"
@@ -171,9 +177,9 @@ const (
 
 //Other Const
 const (
-	TestAppId     = "cli_9d5e49aae9ae9101xxx"
-	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdIxxx"
-	TestTicket    = "d16c9957774d93a6e274f45f110ed6cb6bcec4efxxx"
+	TestAppId     = "cli_9d5e49aae9ae9101"
+	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
+	TestTicket    = "5770998a95a030b7ea7361d41ccadfe07fe9dc17"
 )
 
 const (

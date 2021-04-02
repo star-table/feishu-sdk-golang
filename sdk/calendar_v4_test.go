@@ -43,7 +43,7 @@ func TestTenant_DeleteCalendarV4(t *testing.T) {
 func TestTenant_GetCalendarV4(t *testing.T) {
 	tenantKey := "2e99b3ab0b0f1654"
 	tenant := GetTenant(tenantKey)
-	resp, err := tenant.GetCalendarV4("feishu.cn_Y8iPaCjvuBeG6WEdJ326qg@group.calendar.feishu.cn")
+	resp, err := tenant.GetCalendarV4(calendarIdV4)
 	if err != nil {
 		t.Error(err)
 		return
@@ -246,8 +246,56 @@ func TestTenant_DeleteCalendarEventAttendeesV4(t *testing.T) {
 	t.Log(e)
 
 	resp, err := tenant.DeleteCalendarEventAttendeesV4(calendarIdV4, eventIdV4, "open_id", vo.DeleteCalendarEventAttendeesV4Req{
-		AttendeeIds: []string{"ou_3018c5fbbb152f1b1b8f4c1c547df2b9"},
+		AttendeeIds: []string{"user_6772353233718345997"},
 	})
+
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
+func TestTenant_AddCalendarAclV4(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
+	t.Log(e)
+
+	resp, err := tenant.AddCalendarAclV4(calendarIdV4, "open_id", vo.AddCalendarAclV4Req{
+		Role: "writer",
+		Scope: vo.AclScope{
+			Type:   "user",
+			UserId: "ou_ce397f53085cb712373f71874e8eae78",
+		},
+	})
+
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
+func TestTenant_GetCalendarAclList(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
+	t.Log(e)
+
+	resp, err := tenant.GetCalendarAclList(calendarIdV4, 0, "")
+
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
+func TestTenant_DeleteCalendarAclV4(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
+	t.Log(e)
+
+	resp, err := tenant.DeleteCalendarAclV4(calendarIdV4, "user_6773628684575179019")
 
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)

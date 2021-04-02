@@ -49,7 +49,7 @@ type GetCalendarV4Resp struct {
 }
 
 type GetCalendarListV4Req struct {
-	PageSize int `json:"page_size"`
+	PageSize  int    `json:"page_size"`
 	PageToken string `json:"page_token"`
 	SyncToken string `json:"sync_token"`
 }
@@ -60,9 +60,9 @@ type GetCalendarListV4Resp struct {
 }
 
 type GetCalendarListV4RespData struct {
-	PageToken string `json:"page_token"`
-	SyncToken string `json:"sync_token"`
-	HasMore bool `json:"has_more"`
+	PageToken    string                                  `json:"page_token"`
+	SyncToken    string                                  `json:"sync_token"`
+	HasMore      bool                                    `json:"has_more"`
 	CalendarList []GetCalendarListV4RespDataCalendarItem `json:"calendar_list"`
 }
 
@@ -93,8 +93,8 @@ type SearchCalendarV4Resp struct {
 	Data SearchCalendarV4RespData `data`
 }
 type SearchCalendarV4RespData struct {
-	PageToken string `json:"page_token"`
-	Items []SearchCalendarV4RespDataItem `json:"items"`
+	PageToken string                         `json:"page_token"`
+	Items     []SearchCalendarV4RespDataItem `json:"items"`
 }
 type SearchCalendarV4RespDataItem struct {
 	CalendarID string `json:"calendar_id"`
@@ -258,4 +258,36 @@ type UpdateCalendarEventV4Req struct {
 	Reminders       *[]CalendarEventReminder `json:"reminders"`
 	Recurrence      *string                  `json:"recurrence"`
 	Schemas         *[]CalendarEventSchema   `json:"schemas"`
+}
+
+type AddCalendarAclV4Req struct {
+	Role  string   `json:"role"` //unknown(未知)，free_busy_reader(游客)，reader(订阅者)，writer(编辑者)，owner(管理员)
+	Scope AclScope `json:"scope"`
+}
+
+type AclScope struct {
+	Type   string `json:"type"` //user(用户)
+	UserId string `json:"user_id"`
+}
+
+type AddCalendarAclV4Resp struct {
+	CommonVo
+	Data AddCalendarAclRespData `json:"data"`
+}
+
+type AddCalendarAclRespData struct {
+	Role  string   `json:"role"`
+	AclId string   `json:"acl_id"`
+	Scope AclScope `json:"scope"`
+}
+
+type GetCalendarAclListV4Resp struct {
+	CommonVo
+	Data GetCalendarAclListV4Data `json:"data"`
+}
+
+type GetCalendarAclListV4Data struct {
+	Acls      []AddCalendarAclRespData `json:"acls"`
+	HasMore   bool                     `json:"has_more"`
+	PageToken string                   `json:"page_token"`
 }

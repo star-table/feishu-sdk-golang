@@ -230,6 +230,7 @@ func (t Tenant) UnsubscribeCalendarV4(calendarId string) (*vo.VoidV4Resp, error)
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
 //SubscribeCalendarV4 订阅日历 https://open.feishu.cn/document/ukTMukTMukTM/ucDO3YjL3gzN24yN4cjN
 func (t Tenant) SubscribeCalendarV4(calendarId string) (*vo.SubscribeCalendarV4Resp, error) {
 	respBody, err := http.Post(fmt.Sprintf(consts.ApiCalendarSubscribeV4, calendarId), nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
@@ -250,6 +251,52 @@ func (t Tenant) SubscriptionCalendarV4() (*vo.VoidV4Resp, error) {
 		return nil, err
 	}
 	respVo := &vo.VoidV4Resp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//创建访问控制 https://open.feishu.cn/document/ukTMukTMukTM/uUjM3YjL1IzN24SNycjN
+func (t Tenant) AddCalendarAclV4(calendarId string, userIdType string, body vo.AddCalendarAclV4Req) (*vo.AddCalendarAclV4Resp, error) {
+	params := map[string]interface{}{
+		"user_id_type": userIdType,
+	}
+	respBody, err := http.Post(fmt.Sprintf(consts.ApiCalendarAddCalendarAclV4, calendarId), params, json.ToJsonIgnoreError(body), http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.AddCalendarAclV4Resp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//删除访问控制 https://open.feishu.cn/document/ukTMukTMukTM/uYjM3YjL2IzN24iNycjN
+func (t Tenant) DeleteCalendarAclV4(calendarId string, aclId string) (*vo.CommonVo, error) {
+	respBody, err := http.Delete(fmt.Sprintf(consts.ApiCalendarDeleteCalendarAclV4, calendarId, aclId), nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.CommonVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//获取访问控制列表 https://open.feishu.cn/document/ukTMukTMukTM/ucjM3YjL3IzN24yNycjN
+func (t Tenant) GetCalendarAclList(calendarId string, pageSize int, pageToken string) (*vo.GetCalendarAclListV4Resp, error) {
+	params := map[string]interface{}{}
+	if pageSize > 0 {
+		params["page_size"] = pageSize
+	}
+	if pageToken != "" {
+		params["page_token"] = pageToken
+	}
+	respBody, err := http.Get(fmt.Sprintf(consts.ApiCalendarCalendarAclGetV4, calendarId), params, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetCalendarAclListV4Resp{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
