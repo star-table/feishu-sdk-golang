@@ -34,7 +34,8 @@ func TestTenant_CreateCalendar(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "130736cdb40f9758")
+	//tenant, e := BuildTenant(app.AppAccessToken, "130736cdb40f9758")
+	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
 	t.Log(e)
 
 	resp, err := tenant.CreateCalendar(vo.CreateCalendarReq{

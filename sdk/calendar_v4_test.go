@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-var calendarIdV4 = "feishu.cn_8brvNcf3OwwQOrux8ixWhc@group.calendar.feishu.cn"
+var calendarIdV4 = "feishu.cn_hLMJfum0W0njdhJrycO3bb@group.calendar.feishu.cn"
 var eventIdV4 = "a7f6ab60-a239-45e0-87a7-a19c550e37ef_0"
 
 func TestTenant_CreateCalendarV4(t *testing.T) {
@@ -122,27 +122,27 @@ func TestTenant_CreateCalendarEventV4(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
+	tenant, e := BuildTenant(app.AppAccessToken, "13e56c12788e575f")
 	t.Log(e)
 
 	resp, err := tenant.CreateCalendarEventV4(calendarIdV4, vo.CreateCalendarEventV4Req{
 		Summary:     "a",
-		Description: "a",
+		Description: "",
 		StartTime: vo.CalendarEventTime{
 			Timestamp: "1617176660",
 		},
 		EndTime: vo.CalendarEventTime{
 			Timestamp: "1617177660",
 		},
-		Vchat:           vo.Vchat{},
-		Visibility:      "public",
-		AttendeeAbility: "",
-		FreeBusyStatus:  "",
-		Location:        vo.Location{},
-		Color:           0,
-		Reminders:       nil,
-		Recurrence:      "",
-		Schemas:         nil,
+		//Vchat:           vo.Vchat{},
+		//Visibility:      "public",
+		//AttendeeAbility: "",
+		//FreeBusyStatus:  "",
+		//Location:        vo.Location{},
+		Color:      0,
+		Reminders:  nil,
+		Recurrence: "",
+		Schemas:    nil,
 	})
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
@@ -231,7 +231,7 @@ func TestTenant_GetCalendarEventAttendeesV4(t *testing.T) {
 	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
 	t.Log(e)
 
-	resp, err := tenant.GetCalendarEventAttendeesV4(calendarIdV4, eventIdV4, 50, nil, "open_id")
+	resp, err := tenant.GetCalendarEventAttendeesV4(calendarIdV4, eventIdV4, 0, nil, "open_id")
 
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)

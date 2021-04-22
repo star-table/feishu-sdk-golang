@@ -130,11 +130,11 @@ type CreateCalendarEventV4Req struct {
 	Description     string                  `json:"description"`
 	StartTime       CalendarEventTime       `json:"start_time"`
 	EndTime         CalendarEventTime       `json:"end_time"`
-	Vchat           Vchat                   `json:"vchat"`
-	Visibility      string                  `json:"visibility"`       //default(忙碌),public(公开),private（私密）
-	AttendeeAbility string                  `json:"attendee_ability"` //none,can_see_other,can_invite_others,can_modify_event
-	FreeBusyStatus  string                  `json:"free_busy_status"`
-	Location        Location                `json:"location"`
+	Vchat           *Vchat                  `json:"vchat"`
+	Visibility      *string                 `json:"visibility"`       //default(忙碌),public(公开),private（私密）
+	AttendeeAbility *string                 `json:"attendee_ability"` //none,can_see_other,can_invite_others,can_modify_event
+	FreeBusyStatus  *string                 `json:"free_busy_status"`
+	Location        *Location               `json:"location"`
 	Color           int32                   `json:"color"`
 	Reminders       []CalendarEventReminder `json:"reminders"`
 	Recurrence      string                  `json:"recurrence"`
