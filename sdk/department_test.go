@@ -202,3 +202,24 @@ func TestTenant_GetDepartmentUserDetailListV2(t *testing.T) {
 	//}
 
 }
+
+func TestTenant_GetUsersV3(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	if e != nil {
+		t.Fatal(e)
+	}
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	if e != nil {
+		t.Fatal(e)
+	}
+	t.Log(e)
+	resp, e := tenant.GetUsersV3("", "", "", "", 100)
+	if e != nil {
+		t.Fatal(e)
+	}
+	for _, user := range resp.Data.Items {
+		t.Log(json.ToJsonIgnoreError(user.DepartmentIds))
+	}
+	t.Log(json.ToJsonIgnoreError(resp))
+}
