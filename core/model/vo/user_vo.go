@@ -88,9 +88,11 @@ type GetDepartmentSimpleListV2RespVoData struct {
 }
 
 type DepartmentRestInfoVo struct {
-	Id       string `json:"id"`
-	Name     string `json:"name"`
-	ParentId string `json:"parent_id"`
+	Id                     string `json:"id"`
+	Name                   string `json:"name"`
+	ParentId               string `json:"parent_id"`
+	OpenDepartmentID       string `json:"open_department_id"`
+	ParentOpenDepartmentID string `json:"parent_open_department_id"`
 }
 
 type GetDepartmentInfoRespVo struct {
@@ -179,6 +181,8 @@ type UserDetailInfoV2 struct {
 	EmployeeId      string       `json:"employee_id"`
 	EmployeeNo      string       `json:"employee_no"`
 	OpenId          string       `json:"open_id"`
+	UserId          string       `json:"user_id"`
+	UnionId         string       `json:"union_id"`
 	Status          UserStatus   `json:"status"`
 	EmployeeType    int          `json:"employee_type"`
 	Avatar          UserAvatar   `json:"avatar"`
@@ -194,6 +198,35 @@ type UserDetailInfoV2 struct {
 	UpdateTime      int64        `json:"update_time"`
 	Leader          Leader       `json:"leader"`
 	Departments     []string     `json:"departments"`
+	Positions       []Position   `json:"positions"`
+	Orders          []Order      `json:"orders"`
+	CustomAttrs     []CustomAttr `json:"custom_attrs"`
+}
+
+type UserDetailInfoV3 struct {
+	Name            string       `json:"name"`
+	NamePy          string       `json:"name_py"`
+	EnName          string       `json:"en_name"`
+	EmployeeId      string       `json:"employee_id"`
+	EmployeeNo      string       `json:"employee_no"`
+	OpenId          string       `json:"open_id"`
+	UserId          string       `json:"user_id"`
+	UnionId         string       `json:"union_id"`
+	Status          UserStatus   `json:"status"`
+	EmployeeType    int          `json:"employee_type"`
+	Avatar          UserAvatar   `json:"avatar"`
+	Gender          int          `json:"gender"`
+	Email           string       `json:"email"`
+	Mobile          string       `json:"mobile"`
+	Description     string       `json:"description"`
+	Country         string       `json:"country"`
+	City            string       `json:"city"`
+	WorkStation     string       `json:"work_station"`
+	IsTenantManager bool         `json:"is_tenant_manager"`
+	JoinTime        int64        `json:"join_time"`
+	UpdateTime      int64        `json:"update_time"`
+	LeaderUserId    string       `json:"leader_user_id"`
+	DepartmentIds   []string     `json:"department_ids"`
 	Positions       []Position   `json:"positions"`
 	Orders          []Order      `json:"orders"`
 	CustomAttrs     []CustomAttr `json:"custom_attrs"`
@@ -282,4 +315,15 @@ type GetUserBatchError struct {
 	Id   string `json:"id"`
 	Code int    `json:"code"`
 	Msg  string `json:"msg"`
+}
+
+type GetUsersV3Resp struct {
+	CommonVo
+	Data GetUsersV3RespData `json:"data"`
+}
+
+type GetUsersV3RespData struct {
+	HasMore   bool               `json:"has_more"`
+	PageToken string             `json:"page_token"`
+	Items     []UserDetailInfoV3 `json:"items"`
 }

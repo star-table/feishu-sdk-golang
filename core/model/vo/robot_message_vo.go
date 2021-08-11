@@ -1,6 +1,8 @@
 package vo
 
-import "encoding/binary"
+import (
+	"encoding/binary"
+)
 
 //定义参照: https://open.feishu.cn/open-apis/message/v4/send/
 type MsgVo struct {
@@ -27,9 +29,10 @@ type BatchMsgVo struct {
 }
 
 type MsgContent struct {
-	Text     string   `json:"text"`
-	ImageKey string   `json:"image_key"`
-	Post     *MsgPost `json:"post,omitempty"`
+	Text        string   `json:"text"`
+	ImageKey    string   `json:"image_key"`
+	ShareChatId string   `json:"share_chat_id"`
+	Post        *MsgPost `json:"post,omitempty"`
 }
 
 type MsgPost struct {
@@ -88,11 +91,12 @@ type Card struct {
 
 type CardConfig struct {
 	WideScreenMode bool `json:"wide_screen_mode"`
+	EnableForward  bool `json:"enable_forward"`
 }
 
 type CardHeader struct {
-	Title *CardHeaderTitle `json:"title,omitempty"`
-	Template string `json:"template"`
+	Title    *CardHeaderTitle `json:"title,omitempty"`
+	Template string           `json:"template"`
 }
 
 type CardHeaderTitle struct {
@@ -123,9 +127,13 @@ type CardElementBrModule struct {
 type CardElementImageModule struct {
 	Tag string `json:"tag"`
 
-	ImgKey string           `json:"img_key"`
-	Alt    CardElementText  `json:"alt"`
-	Title  *CardElementText `json:"title,omitempty"`
+	CustomWidth  int              `json:"custom_width"`
+	CompactWidth bool             `json:"compact_width"`
+	Mode         string           `json:"mode"`
+	Preview      bool             `json:"preview"`
+	ImgKey       string           `json:"img_key"`
+	Alt          CardElementText  `json:"alt"`
+	Title        *CardElementText `json:"title,omitempty"`
 }
 
 type CardElementTextAlt struct {
