@@ -49,10 +49,10 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [ ] 获取企业安装的应用
   - [ ] 更新应用可用范围
   - [ ] 设置用户可用应用
-- [ ] 应用商店计费信息
-  - [ ] 查询用户是否在应用开通范围
-  - [ ] 查询租户购买的付费方案
-  - [ ] 查询订单详情
+- [x] 应用商店计费信息
+  - [x] 查询用户是否在应用开通范围
+  - [x] 查询租户购买的付费方案
+  - [x] 查询订单详情
 - [x] 群组
   - [x] 获取用户所在的群列表
   - [x] 获取群成员列表
@@ -87,6 +87,8 @@ FeiShu Server Api Doc ([https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0Uj
   - [x] 删除日程
   - [x] 更新日程
   - [x] 邀请/移除日程参与者
+- [x] 企业
+  - [x] 获取企业信息
 
 ## 参考
 * 飞书官方文档 https://open.feishu.cn/document/uQjL04CN/ucDOz4yN4MjL3gzM

@@ -54,7 +54,7 @@ func DeleteRequest(url string, body string, headerOptions ...HeaderOption) (stri
 	}
 	resp, err := httpClient.Do(req)
 	defer func() {
-		if resp != nil{
+		if resp != nil {
 			if e := resp.Body.Close(); e != nil {
 				fmt.Println(e)
 			}
@@ -81,7 +81,7 @@ func PatchRequest(url string, body string, headerOptions ...HeaderOption) (strin
 	}
 	resp, err := httpClient.Do(req)
 	defer func() {
-		if resp != nil{
+		if resp != nil {
 			if e := resp.Body.Close(); e != nil {
 				fmt.Println(e)
 			}
