@@ -154,11 +154,11 @@ func TestTenant_SendMessage_Card_Daily_Report(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "2e99b3ab0b0f1654")
 	t.Log(e)
 
 	resp, err := tenant.SendMessage(vo.MsgVo{
-		OpenId:  "ou_433f2b1abf3e0ec316fd9e60d4cda654",
+		OpenId:  "ou_ce397f53085cb712373f71874e8eae78",
 		MsgType: "interactive",
 		Card: &vo.Card{
 			Config: &vo.CardConfig{
@@ -197,12 +197,7 @@ func TestTenant_SendMessage_Card_Daily_Report(t *testing.T) {
 								Tag:     "plain_text",
 								Content: "去处理",
 							},
-							MultiUrl: &vo.CardElementUrl{
-								PcUrl:      "http://feishu.cn",
-								IosUrl:     "https://baidu.com",
-								AndroidUrl: "http://app.bjx.cloud/project",
-							},
-							Type: "default",
+							Type: "link",
 						},
 					},
 				},

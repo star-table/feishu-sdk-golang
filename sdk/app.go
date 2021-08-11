@@ -38,3 +38,15 @@ func (t Tenant) AdminUserList() (*vo.AdminUserListResp, error) {
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//获取企业信息 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query
+func (t Tenant) OrgInfo() (*vo.OrgInfoResp, error) {
+	respBody, err := http.Get(consts.ApiOrgInfo, nil, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.OrgInfoResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

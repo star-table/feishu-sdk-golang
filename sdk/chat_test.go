@@ -25,10 +25,10 @@ func TestTenant_ChatMembers(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "1319b042200f575e")
 	t.Log(e)
 
-	resp, err := tenant.ChatMembers("", "", 0, "")
+	resp, err := tenant.ChatMembers("u-ounhsAClQtnDTFcmv6Wyrc", "oc_4c1e5c42e6183294e72eba6c9475512d", 0, "")
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)

@@ -55,7 +55,7 @@ func TestTenant_GetScopeV2(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "138337e75b0b575d")
 	t.Log(e)
 
 	resp, err := tenant.GetScopeV2()
