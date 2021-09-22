@@ -33,7 +33,7 @@ func TestTenant_BatchGetId(t *testing.T) {
 	tenant, e := BuildTenant(app.AppAccessToken, "12243f37560ed740")
 	t.Log(e)
 
-	resp, err := tenant.BatchGetId(nil, []string{"18896513679"})
+	resp, err := tenant.BatchGetId([]string{"xxxxxx@qq.com"}, []string{"+86xxxxxxx", "xxxxx"})
 	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
