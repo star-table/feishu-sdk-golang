@@ -1,8 +1,11 @@
 package sdk
 
 import (
+	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
+	"gotest.tools/assert"
 	"testing"
 )
 
@@ -21,4 +24,17 @@ func TestSearch(t *testing.T) {
 	body, e := http.Get("https://open.feishu.cn/api/v3/app/cli_9d5e49aae9ae9101/developer/search?name=l", nil)
 	t.Log(e)
 	t.Log(body)
+}
+
+func TestTenant_BatchGetId(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "12243f37560ed740")
+	t.Log(e)
+
+	resp, err := tenant.BatchGetId(nil, []string{"18896513679"})
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
 }

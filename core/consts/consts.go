@@ -26,6 +26,8 @@ const (
 	ApiScope = "https://open.feishu.cn/open-apis/contact/v1/scope/get"
 	//获取通讯录授权范围v2
 	ApiScopeV2 = "https://open.feishu.cn/open-apis/contact/v2/scope/get"
+	//使用手机号或邮箱获取用户 ID
+	ApiBatchGetUserId = "https://open.feishu.cn/open-apis/user/v1/batch_get_id"
 
 	//获取部门列表
 	ApiDepartmentSimpleList = "https://open.feishu.cn/open-apis/contact/v1/department/simple/list"

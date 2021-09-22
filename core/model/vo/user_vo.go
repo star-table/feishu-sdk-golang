@@ -327,3 +327,20 @@ type GetUsersV3RespData struct {
 	PageToken string             `json:"page_token"`
 	Items     []UserDetailInfoV3 `json:"items"`
 }
+
+type BatchGetIdResp struct {
+	CommonVo
+	Data BatchGetIdData `json:"data"`
+}
+
+type BatchGetIdData struct {
+	EmailUsers      map[string][]SimpleIdInfo `json:"email_users"`
+	EmailsNotExist  []string                  `json:"emails_not_exist"`
+	MobileUsers     map[string][]SimpleIdInfo `json:"mobile_users"`
+	MobilesNotExist []string                  `json:"mobiles_not_exist"`
+}
+
+type SimpleIdInfo struct {
+	OpenId string `json:"open_Id"`
+	UserId string `json:"user_id"`
+}

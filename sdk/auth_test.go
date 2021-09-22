@@ -53,7 +53,7 @@ func TestTokenLoginValidate(t *testing.T) {
 }
 
 func TestRefreshUserAccessToken(t *testing.T) {
-	t.Log(RefreshUserAccessToken(consts.TestAppId, consts.TestAppSecret, consts.TestTicket, "aaaaa"))
+	t.Log(RefreshUserAccessToken(consts.TestAppId, consts.TestAppSecret, consts.TestTicket, "ur-kprTLXLeDIRLA7ifLwu0Bd"))
 }
 
 func TestGetOauth2AccessToken(t *testing.T) {

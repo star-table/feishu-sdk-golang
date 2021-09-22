@@ -213,11 +213,11 @@ func TestTenant_SendMessage_PC_Applet(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2ed263bf32cf1651")
+	tenant, e := BuildTenant(app.AppAccessToken, "1279794b670f575f")
 	t.Log(e)
 
 	resp, err := tenant.SendMessageBatch(vo.BatchMsgVo{
-		OpenIds: []string{"ou_e1b43c426e884c586d52751853896688", "ou_64c74b3ffeb5ad1693ab830384373b5a"},
+		OpenIds: []string{"ou_4736aa27afbeb880894f5f98e19ac46e"},
 		MsgType: "interactive",
 		Card: &vo.Card{
 			Config: &vo.CardConfig{
