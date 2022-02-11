@@ -20,6 +20,8 @@ const (
 	ApiTokenLoginValidate = "https://open.feishu.cn/open-apis/mina/v2/tokenLoginValidate"
 	//刷新access_token
 	ApiRefreshAccessToken = "https://open.feishu.cn/open-apis/authen/v1/refresh_access_token"
+	//获取登录用户身份（新版）
+	ApiAuthenAccessToken = "https://open.feishu.cn/open-apis/authen/v1/access_token"
 
 	//////////////////部门和用户
 	//获取通讯录授权范围
@@ -187,9 +189,9 @@ const (
 
 //Other Const
 const (
-	TestAppId     = "cli_9d5e49aae9ae9101"
-	TestAppSecret = "HDzPYfWmf8rmhsF2hHSvmhTffojOYCdI"
-	TestTicket    = "da8f05a6097c3c2f7f613fa75add5393d3e7de80"
+	TestAppId     = "**********************"
+	TestAppSecret = "******************************"
+	TestTicket    = "**********************************"
 )
 
 const (

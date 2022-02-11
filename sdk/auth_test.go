@@ -70,3 +70,10 @@ func TestGetOauth2AccessToken(t *testing.T) {
 func TestGetOAuth2UserInfo(t *testing.T) {
 	t.Log(GetOAuth2UserInfo("u-e3PphRj4a4LiklDaeWjnre"))
 }
+
+func TestAuthenAccessToken(t *testing.T) {
+	resp, err := AuthenAccessToken("a-8a2a27bcfeac6c4ebc1b48f2f8f60d4994261288", "authorization_code", "wF5dMARxrdwemww56sTefc")
+	t.Log(json.ToJsonIgnoreError(resp))
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}

@@ -344,3 +344,27 @@ type SimpleIdInfo struct {
 	OpenId string `json:"open_Id"`
 	UserId string `json:"user_id"`
 }
+
+type AuthenAccessTokenResp struct {
+	CommonVo
+	Data AuthenAccessTokenData `json:"data"`
+}
+
+type AuthenAccessTokenData struct {
+	AccessToken      string `json:"access_token"`
+	TokenType        string `json:"token_type"`
+	ExpiresIn        int64  `json:"expires_in"`
+	Name             string `json:"name"`
+	EnName           string `json:"en_name"`
+	AvatarUrl        string `json:"avatar_url"`
+	AvatarThumb      string `json:"avatar_thumb"`
+	AvatarMiddle     string `json:"avatar_middle"`
+	AvatarBig        string `json:"avatar_big"`
+	OpenId           string `json:"open_id"`
+	Email            string `json:"email"`
+	UserId           string `json:"user_id"`
+	Mobile           string `json:"mobile"`
+	TenantKey        string `json:"tenant_key"`
+	RefreshExpiresIn int64  `json:"refresh_expires_in"`
+	RefreshToken     string `json:"refresh_token"`
+}

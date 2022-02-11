@@ -101,6 +101,21 @@ func GetOauth2AccessToken(req vo.OAuth2AccessTokenReqVo) (*vo.OAuth2AccessTokenR
 	return respVo, nil
 }
 
+func AuthenAccessToken(appAccessToken string, grantType string, code string) (*vo.AuthenAccessTokenResp, error) {
+	req := map[string]string{
+		"code":       code,
+		"grant_type": grantType,
+	}
+	respBody, err := http.Post(consts.ApiAuthenAccessToken, nil, json.ToJsonIgnoreError(req), http.BuildTokenHeaderOptions(appAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.AuthenAccessTokenResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uAjNz4CM2MjLwYzM
 func GetOAuth2UserInfo(userAccessToken string) (*vo.OAuth2UserInfoRespVo, error) {
 	respBody, err := http.Get(consts.ApiOAuth2GetUserInfoByAccessToken, nil, http.BuildTokenHeaderOptions(userAccessToken))
