@@ -43,7 +43,19 @@ func TestTenant_ChatSearch(t *testing.T) {
 
 	resp, err := tenant.ChatSearch("u-OVRWRbISgBZK6j9pu2ApJg", "北极星测试企业。", 0, "")
 	log.Info(json.ToJsonIgnoreError(resp), err)
-	log.Info(111, resp.Data)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, resp.Code, 0)
+}
+
+func TestTenant_ImChatList(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "1279794b670f575f")
+	t.Log(e)
+
+	resp, err := tenant.ImChatList("", 0, "", nil)
+	log.Info(json.ToJsonIgnoreError(resp), err)
 	assert.Equal(t, err, nil)
 	assert.Equal(t, resp.Code, 0)
 }

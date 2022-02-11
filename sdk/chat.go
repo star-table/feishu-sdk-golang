@@ -1,6 +1,7 @@
 package sdk
 
 import (
+	"fmt"
 	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
 	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
@@ -66,6 +67,51 @@ func (t Tenant) ChatSearch(userAccessToken string, query string, pageSize int, p
 		return nil, err
 	}
 	respVo := &vo.GroupListRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//获取用户或机器人所在的群列表 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list
+func (t Tenant) ImChatList(userAccessToken string, pageSize int, pageToken string, userIdType *string) (*vo.ImChatListRespVo, error) {
+	queryParams := map[string]interface{}{}
+	if pageSize > 0 {
+		queryParams["page_size"] = pageSize
+	}
+	if pageToken != "" {
+		queryParams["page_token"] = pageToken
+	}
+	if userIdType != nil {
+		queryParams["user_id_type"] = *userIdType
+	}
+
+	accessToken := t.TenantAccessToken
+	if userAccessToken != "" {
+		accessToken = userAccessToken
+	}
+	respBody, err := http.Get(consts.ApiImChatList, queryParams, http.BuildTokenHeaderOptions(accessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	respVo := &vo.ImChatListRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+//获取群信息 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get
+func (t Tenant) ImChatInfo(userAccessToken string, chatId string) (*vo.ImChatInfoRespVo, error) {
+	accessToken := t.TenantAccessToken
+	if userAccessToken != "" {
+		accessToken = userAccessToken
+	}
+	respBody, err := http.Get(fmt.Sprintf("%s%s", consts.ApiImChatInfo, chatId), nil, http.BuildTokenHeaderOptions(accessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	respVo := &vo.ImChatInfoRespVo{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }

@@ -142,6 +142,10 @@ const (
 	ApiChatMembers = "https://open.feishu.cn/open-apis/chat/v4/members"
 	//搜索用户所在的群列表
 	ApiChatSearch = "https://open.feishu.cn/open-apis/chat/v4/search"
+	//获取用户或机器人所在的群列表
+	ApiImChatList = "https://open.feishu.cn/open-apis/im/v1/chats"
+	//获取群信息
+	ApiImChatInfo = "https://open.feishu.cn/open-apis/im/v1/chats/"
 
 	////////群信息和群管理
 	//创建群

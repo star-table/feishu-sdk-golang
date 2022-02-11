@@ -36,3 +36,50 @@ type MemberData struct {
 	UserId string `json:"user_id"`
 	Name   string `json:"name"`
 }
+
+type ImChatListRespVo struct {
+	CommonVo
+	Data ImChatListData `json:"data"`
+}
+
+type ImChatListData struct {
+	Items     []SimpleChatInfo `json:"items"`
+	PageToken string           `json:"page_token"`
+	HasMore   bool             `json:"has_more"`
+}
+
+type SimpleChatInfo struct {
+	ChatId      string `json:"chat_id"`
+	Avatar      string `json:"avatar"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	OwnerId     string `json:"owner_id"`
+	OwnerIdType string `json:"owner_id_type"`
+}
+
+type ImChatInfoRespVo struct {
+	CommonVo
+	Data ImChatInfoData `json:"data"`
+}
+
+type ImChatInfoData struct {
+	Avatar                 string      `json:"avatar"`
+	Name                   string      `json:"name"`
+	Description            string      `json:"description"`
+	I18nElements           I18nElement `json:"i18n_elements,omitempty"`
+	AddMemberPermission    string      `json:"add_member_permission"`
+	ShareCardPermission    string      `json:"share_card_permission"`
+	AtAllPermission        string      `json:"at_all_permission"`
+	EditPermission         string      `json:"edit_permission"`
+	OwnerIdType            string      `json:"owner_id_type"`
+	OwnerId                string      `json:"owner_id"`
+	ChatMode               string      `json:"chat_mode"`
+	ChatType               string      `json:"chat_type"`
+	ChatTag                string      `json:"chat_tag"`
+	JoinMessageVisibility  string      `json:"join_message_visibility"`
+	LeaveMessageVisibility string      `json:"leave_message_visibility"`
+	MembershipApproval     string      `json:"membership_approval"`
+	ModerationPermission   string      `json:"moderation_permission"`
+	External               bool        `json:"external"`
+	TenantKey              string      `json:"tenant_key"`
+}
