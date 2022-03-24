@@ -50,3 +50,14 @@ func (t Tenant) OrgInfo() (*vo.OrgInfoResp, error) {
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+func (t Tenant) GetJsTicket() (*vo.GetJsTicketResp, error) {
+	respBody, err := http.Post(consts.ApiJSApiTicket, nil, "", http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetJsTicketResp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

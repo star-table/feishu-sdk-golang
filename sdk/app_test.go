@@ -34,10 +34,22 @@ func TestTenant_OrgInfo(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)
 	t.Log(json.ToJsonIgnoreError(app))
-	tenant, e := BuildTenant(app.AppAccessToken, "2eb972ddc1cf1652")
+	tenant, e := BuildTenant(app.AppAccessToken, "116542e77eced75d")
 	t.Log(e)
 
 	resp, err := tenant.OrgInfo()
+	t.Log(err)
+	t.Log(json.ToJsonIgnoreError(resp))
+}
+
+func TestTenant_GetJsTicket(t *testing.T) {
+	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
+	t.Log(e)
+	t.Log(json.ToJsonIgnoreError(app))
+	tenant, e := BuildTenant(app.AppAccessToken, "116542e77eced75d")
+	t.Log(e)
+
+	resp, err := tenant.GetJsTicket()
 	t.Log(err)
 	t.Log(json.ToJsonIgnoreError(resp))
 }

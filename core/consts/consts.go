@@ -22,6 +22,8 @@ const (
 	ApiRefreshAccessToken = "https://open.feishu.cn/open-apis/authen/v1/refresh_access_token"
 	//获取登录用户身份（新版）
 	ApiAuthenAccessToken = "https://open.feishu.cn/open-apis/authen/v1/access_token"
+	//JSAPI 临时授权凭证
+	ApiJSApiTicket = "https://open.feishu.cn/open-apis/jssdk/ticket/get"
 
 	//////////////////部门和用户
 	//获取通讯录授权范围

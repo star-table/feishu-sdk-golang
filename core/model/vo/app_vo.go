@@ -40,3 +40,13 @@ type TenantData struct {
 	TenantKey string     `json:"tenant_key"`
 	Avatar    UserAvatar `json:"avatar"`
 }
+
+type GetJsTicketResp struct {
+	CommonVo
+	Data GetJsTicketData `json:"data"`
+}
+
+type GetJsTicketData struct {
+	Ticket   string `json:"ticket"`
+	ExpireIn int    `json:"expire_in"`
+}
