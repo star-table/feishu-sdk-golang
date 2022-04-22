@@ -92,6 +92,7 @@ type Card struct {
 type CardConfig struct {
 	WideScreenMode bool `json:"wide_screen_mode"`
 	EnableForward  bool `json:"enable_forward"`
+	UpdateMulti    bool `json:"update_multi"`
 }
 
 type CardHeader struct {
