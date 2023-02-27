@@ -42,6 +42,27 @@ type OAuth2AccessTokenRespVo struct {
 	Message      string `json:"message"`
 }
 
+type OAuth2AccessTokenRespVoV1 struct {
+	AccessToken      string `json:"access_token"`
+	TokenType        string `json:"token_type"`
+	ExpiresIn        int    `json:"expires_in"`
+	Name             string `json:"name"`
+	EnName           string `json:"en_name"`
+	AvatarURL        string `json:"avatar_url"`
+	AvatarThumb      string `json:"avatar_thumb"`
+	AvatarMiddle     string `json:"avatar_middle"`
+	AvatarBig        string `json:"avatar_big"`
+	OpenID           string `json:"open_id"`
+	UnionID          string `json:"union_id"`
+	Email            string `json:"email"`
+	EnterpriseEmail  string `json:"enterprise_email"`
+	UserID           string `json:"user_id"`
+	Mobile           string `json:"mobile"`
+	TenantKey        string `json:"tenant_key"`
+	RefreshExpiresIn int    `json:"refresh_expires_in"`
+	RefreshToken     string `json:"refresh_token"`
+}
+
 type OAuth2UserInfoRespVo struct {
 	AvatarUrl  string `json:"AvatarUrl"`
 	Name       string `json:"Name"`

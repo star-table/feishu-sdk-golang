@@ -8,7 +8,7 @@ import (
 	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
 )
 
-//获取 app_access_token（企业自建应用）https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN
+// 获取 app_access_token（企业自建应用）https://open.feishu.cn/document/ukTMukTMukTM/uADN14CM0UjLwQTN
 func GetAppAccessTokenInternal(appId, appSecret string) (*vo.AppAccessTokenInternalRespVo, error) {
 	reqBody := map[string]interface{}{
 		"app_id":     appId,
@@ -24,7 +24,7 @@ func GetAppAccessTokenInternal(appId, appSecret string) (*vo.AppAccessTokenInter
 	return respVo, nil
 }
 
-//获取 app_access_token（应用商店应用）https://open.feishu.cn/document/ukTMukTMukTM/uEjNz4SM2MjLxYzM
+// 获取 app_access_token（应用商店应用）https://open.feishu.cn/document/ukTMukTMukTM/uEjNz4SM2MjLxYzM
 func GetAppAccessToken(appId, appSecret, appTicket string) (*vo.AppAccessTokenRespVo, error) {
 	reqBody := map[string]interface{}{
 		"app_id":     appId,
@@ -41,7 +41,7 @@ func GetAppAccessToken(appId, appSecret, appTicket string) (*vo.AppAccessTokenRe
 	return respVo, nil
 }
 
-//获取 tenant_access_token（企业自建应用）https://open.feishu.cn/document/ukTMukTMukTM/uIjNz4iM2MjLyYzM
+// 获取 tenant_access_token（企业自建应用）https://open.feishu.cn/document/ukTMukTMukTM/uIjNz4iM2MjLyYzM
 func GetTenantAccessTokenInternal(appId string, appSecret string) (*vo.TenantAccessTokenRespVo, error) {
 	reqBody := map[string]interface{}{
 		"app_id":     appId,
@@ -57,7 +57,7 @@ func GetTenantAccessTokenInternal(appId string, appSecret string) (*vo.TenantAcc
 	return respVo, nil
 }
 
-//获取 tenant_access_token（应用商店应用）https://open.feishu.cn/document/ukTMukTMukTM/uMjNz4yM2MjLzYzM
+// 获取 tenant_access_token（应用商店应用）https://open.feishu.cn/document/ukTMukTMukTM/uMjNz4yM2MjLzYzM
 func GetTenantAccessToken(appAccessToken string, tenantKey string) (*vo.TenantAccessTokenRespVo, error) {
 	reqBody := map[string]interface{}{
 		"app_access_token": appAccessToken,
@@ -73,7 +73,7 @@ func GetTenantAccessToken(appAccessToken string, tenantKey string) (*vo.TenantAc
 	return respVo, nil
 }
 
-//重新推送 app_ticket https://open.feishu.cn/document/ukTMukTMukTM/uQjNz4CN2MjL0YzM
+// 重新推送 app_ticket https://open.feishu.cn/document/ukTMukTMukTM/uQjNz4CN2MjL0YzM
 func AppTicketResend(appId, appSecret string) (*vo.CommonVo, error) {
 	reqBody := map[string]interface{}{
 		"app_id":     appId,
@@ -89,7 +89,7 @@ func AppTicketResend(appId, appSecret string) (*vo.CommonVo, error) {
 	return respVo, nil
 }
 
-//获取登录用户身份 https://open.feishu.cn/document/ukTMukTMukTM/ukTNz4SO1MjL5UzM
+// 获取登录用户身份 https://open.feishu.cn/document/ukTMukTMukTM/ukTNz4SO1MjL5UzM
 func GetOauth2AccessToken(req vo.OAuth2AccessTokenReqVo) (*vo.OAuth2AccessTokenRespVo, error) {
 	respBody, err := http.Post(consts.ApiOAuth2AccessToken, nil, json.ToJsonIgnoreError(req))
 	if err != nil {
@@ -97,6 +97,18 @@ func GetOauth2AccessToken(req vo.OAuth2AccessTokenReqVo) (*vo.OAuth2AccessTokenR
 		return nil, err
 	}
 	respVo := &vo.OAuth2AccessTokenRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
+// GetOauth2AccessTokenV1 https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/authen/access_token
+func GetOauth2AccessTokenV1(req vo.OAuth2AccessTokenReqVo) (*vo.OAuth2AccessTokenRespVoV1, error) {
+	respBody, err := http.Post(consts.ApiOAuth2AccessTokenV1, nil, json.ToJsonIgnoreError(req))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.OAuth2AccessTokenRespVoV1{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
@@ -116,7 +128,7 @@ func AuthenAccessToken(appAccessToken string, grantType string, code string) (*v
 	return respVo, nil
 }
 
-//获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uAjNz4CM2MjLwYzM
+// 获取用户信息 https://open.feishu.cn/document/ukTMukTMukTM/uAjNz4CM2MjLwYzM
 func GetOAuth2UserInfo(userAccessToken string) (*vo.OAuth2UserInfoRespVo, error) {
 	respBody, err := http.Get(consts.ApiOAuth2GetUserInfoByAccessToken, nil, http.BuildTokenHeaderOptions(userAccessToken))
 	if err != nil {
@@ -128,7 +140,7 @@ func GetOAuth2UserInfo(userAccessToken string) (*vo.OAuth2UserInfoRespVo, error)
 	return respVo, nil
 }
 
-//code2session https://open.feishu.cn/document/ukTMukTMukTM/ukjM04SOyQjL5IDN?lang=zh-CN
+// code2session https://open.feishu.cn/document/ukTMukTMukTM/ukjM04SOyQjL5IDN?lang=zh-CN
 func TokenLoginValidate(appAccessToken string, code string) (*vo.TokenLoginValidateResp, error) {
 	req := map[string]string{
 		"code": code,
@@ -143,7 +155,7 @@ func TokenLoginValidate(appAccessToken string, code string) (*vo.TokenLoginValid
 	return respVo, nil
 }
 
-//刷新access_token https://open.feishu.cn/document/ukTMukTMukTM/uQDO4UjL0gDO14CN4gTN
+// 刷新access_token https://open.feishu.cn/document/ukTMukTMukTM/uQDO4UjL0gDO14CN4gTN
 func RefreshUserAccessToken(appId, appSecret, appTicket, refreshToken string) (*vo.RefreshAccessTokenResp, error) {
 	appAccessToken, err := GetAppAccessToken(appId, appSecret, appTicket)
 	if err != nil {
