@@ -1,6 +1,6 @@
 package consts
 
-//API Host const， v3
+// API Host const， v3
 const (
 	//获取 app_access_token（企业自建应用）
 	ApiAppAccessTokenInternal = "https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal/"
@@ -14,6 +14,8 @@ const (
 	ApiAppTicketResend = "https://open.feishu.cn/open-apis/auth/v3/app_ticket/resend/"
 	//获取登录用户身份
 	ApiOAuth2AccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/access_token/"
+	//获取登录用户身份 2022-09-30 版本
+	ApiOAuth2AccessTokenV1 = "https://open.feishu.cn/open-apis/authen/v1/access_token"
 	//获取登录用户身份(通过user_access_token)
 	ApiOAuth2GetUserInfoByAccessToken = "https://open.feishu.cn/connect/qrconnect/oauth2/user_info/"
 	//code2session
@@ -189,7 +191,7 @@ const (
 	ApiApplyScopes = "https://open.feishu.cn/open-apis/application/v6/scopes/apply"
 )
 
-//Other Const
+// Other Const
 const (
 	TestAppId     = "**********************"
 	TestAppSecret = "******************************"
